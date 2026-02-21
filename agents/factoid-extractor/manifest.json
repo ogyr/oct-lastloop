@@ -1,0 +1,21 @@
+{
+  "name": "factoid-extractor",
+  "componentType": "agent",
+  "displayName": "Factoid Extractor",
+  "description": "Extracts non-common-knowledge factoids from conversation transcripts — systems knowledge and world knowledge",
+  "version": "1.0.0",
+  "maturity": "beta",
+  "category": "agent",
+  "provides": {
+    "tools": [],
+    "commands": [],
+    "agents": ["agents/factoid-extractor.md"],
+    "skills": [],
+    "mcp": null,
+    "plugins": [],
+    "runtime": null
+  },
+  "dependencies": [],
+  "envVars": [],
+  "platforms": ["darwin", "linux"]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "lastloop",
+  "componentType": "tool",
+  "displayName": "Lastloop — Post-Conversation Knowledge Extraction",
+  "description": "Extract feedbacks, factoids, and reusable agent patterns from OpenCode conversation history",
+  "version": "1.0.0",
+  "maturity": "beta",
+  "category": "knowledge",
+  "provides": {
+    "tools": [],
+    "commands": ["commands/lastloop.md"],
+    "agents": [],
+    "skills": [],
+    "mcp": null,
+    "plugins": [],
+    "runtime": "runtime"
+  },
+  "dependencies": [
+    "world-effect-classifier",
+    "feedback-loop-extractor",
+    "factoid-extractor",
+    "extraction-verifier"
+  ],
+  "envVars": [],
+  "platforms": ["darwin", "linux"]
+}

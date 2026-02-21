@@ -1,0 +1,21 @@
+{
+  "name": "sunmi-hardware-debugger",
+  "componentType": "agent",
+  "displayName": "Sunmi Hardware Debugger",
+  "description": "Debug and interact with Sunmi POS hardware (printer, display, etc.) via JS bridge and ADB on physical devices",
+  "version": "1.0.0",
+  "maturity": "experimental",
+  "category": "agent",
+  "provides": {
+    "tools": [],
+    "commands": [],
+    "agents": ["agents/sunmi-hardware-debugger.md"],
+    "skills": [],
+    "mcp": null,
+    "plugins": [],
+    "runtime": null
+  },
+  "dependencies": [],
+  "envVars": [],
+  "platforms": ["darwin", "linux"]
+}

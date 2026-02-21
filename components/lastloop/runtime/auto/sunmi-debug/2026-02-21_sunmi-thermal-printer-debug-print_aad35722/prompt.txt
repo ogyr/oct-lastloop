@@ -1,0 +1,10 @@
+/role world-effect-classifier
+Read convo.txt and extract all observable effects into feedbacks/ and triedbutfailed/.
+
+/role feedback-loop-extractor
+Read convo.txt and extract novel tool uses into feedbacks/tools.md.
+
+/role factoid-extractor
+Read convo.txt and extract non-common-knowledge factoids into factoids/systems/ and factoids/world/.
+
+Review convo.txt for reusable workflow patterns that warrant a new agent role. If found, scaffold under agents/.

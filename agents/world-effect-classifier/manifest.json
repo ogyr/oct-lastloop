@@ -1,0 +1,21 @@
+{
+  "name": "world-effect-classifier",
+  "componentType": "agent",
+  "displayName": "World Effect Classifier",
+  "description": "Reads a conversation dump and classifies all world effects — what changed, what was observed, what failed",
+  "version": "1.0.0",
+  "maturity": "beta",
+  "category": "agent",
+  "provides": {
+    "tools": [],
+    "commands": [],
+    "agents": ["agents/world-effect-classifier.md"],
+    "skills": [],
+    "mcp": null,
+    "plugins": [],
+    "runtime": null
+  },
+  "dependencies": [],
+  "envVars": [],
+  "platforms": ["darwin", "linux"]
+}

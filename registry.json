@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "components": ["lastloop"],
+  "agents": [
+    "world-effect-classifier",
+    "feedback-loop-extractor",
+    "factoid-extractor",
+    "extraction-verifier"
+  ]
+}

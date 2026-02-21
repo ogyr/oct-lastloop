@@ -1,0 +1,21 @@
+{
+  "name": "extraction-verifier",
+  "componentType": "agent",
+  "displayName": "Extraction Verifier",
+  "description": "Skeptical reviewer that audits lastloop extraction output for misclassifications, verbatim accuracy, and cross-consistency",
+  "version": "1.0.0",
+  "maturity": "beta",
+  "category": "agent",
+  "provides": {
+    "tools": [],
+    "commands": [],
+    "agents": ["agents/extraction-verifier.md"],
+    "skills": [],
+    "mcp": null,
+    "plugins": [],
+    "runtime": null
+  },
+  "dependencies": [],
+  "envVars": [],
+  "platforms": ["darwin", "linux"]
+}

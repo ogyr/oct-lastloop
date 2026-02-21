@@ -1,0 +1,21 @@
+{
+  "name": "feedback-loop-extractor",
+  "componentType": "agent",
+  "displayName": "Feedback Loop Extractor",
+  "description": "Extracts observe tool usage patterns and novel tool applications from agent conversations",
+  "version": "1.0.0",
+  "maturity": "beta",
+  "category": "agent",
+  "provides": {
+    "tools": [],
+    "commands": [],
+    "agents": ["agents/feedback-loop-extractor.md"],
+    "skills": [],
+    "mcp": null,
+    "plugins": [],
+    "runtime": null
+  },
+  "dependencies": [],
+  "envVars": [],
+  "platforms": ["darwin", "linux"]
+}
