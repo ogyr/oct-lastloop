@@ -36,7 +36,8 @@ const DB_PATH = join(
     ".local/share/opencode/opencode.db",
 );
 // auto/ lives alongside this script (works both in .oct/lastloop/ and .opencode/lastloop/)
-const LASTLOOP_BASE = resolve(import.meta.dir, "auto");
+// LASTLOOP_AUTO_DIR env var allows tests to redirect output to a temp directory
+const LASTLOOP_BASE = process.env.LASTLOOP_AUTO_DIR || resolve(import.meta.dir, "auto");
 
 // --- Parse args ---
 let sessionId: string | undefined;
