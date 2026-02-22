@@ -1,57 +1,51 @@
-import { tool } from "@anthropic-ai/tool";
-import { spawn } from "child_process";
-import * as path from "path";
+/**
+ * lastloop — Post-conversation knowledge extraction tool
+ *
+ * Thin wrapper that delegates to extract.ts in the runtime dir.
+ * Installed by oct into .opencode/tools/lastloop.ts
+ */
+import { tool } from "@opencode-ai/plugin"
+import { existsSync } from "fs"
+import { dirname, join } from "path"
+import { spawnSync } from "child_process"
+
+const OPENCODE_DIR = join(dirname(import.meta.path), "..")
+const EXTRACT_PATH = join(OPENCODE_DIR, "lastloop", "extract.ts")
 
 export default tool({
-  name: "lastloop",
   description:
-    "Post-conversation knowledge extraction pipeline. List sessions, manage workspaces, and extract knowledge from OpenCode conversations. Use --list to browse sessions, --list_workspaces to see workspaces, or -w NAME <session> to run extraction.",
-  parameters: {
-    args: {
-      type: "string",
-      description: `Arguments for the lastloop CLI. Examples:
-  --list                    List last 20 sessions (current project)
-  --list_all                List last 20 sessions (all projects)
-  --list_workspaces         List existing workspaces
-  --list --limit 5          List last 5 sessions
-  -w NAME --create          Create workspace + extract latest session
-  -w NAME --create 3        Create workspace + extract session #3
-  -w NAME ses_xxxxx         Extract specific session into workspace
-  (no args)                 Show help`,
-    },
+    "Post-conversation knowledge extraction pipeline. Subcommands: " +
+    "--list (browse sessions), --list_all (all projects), --list_workspaces (see workspaces), " +
+    "-w NAME [--create] <session> (extract into workspace). " +
+    "Session can be a number from --list output or a session ID. No args = help.",
+  args: {
+    args: tool.schema
+      .string()
+      .optional()
+      .describe(
+        "Arguments, e.g. '--list', '--list --limit 5', '--list_workspaces', " +
+        "'-w my-workspace --create 3', '-w my-workspace ses_xxxxx'",
+      ),
   },
-  async execute({ args }, context) {
-    const scriptPath = path.join(
-      context.worktree,
-      ".opencode",
-      "lastloop",
-      "extract.ts",
-    );
+  async execute(input) {
+    if (!existsSync(EXTRACT_PATH)) {
+      return `[error] extract.ts not found at ${EXTRACT_PATH}. Run: oct install oct-lastloop/lastloop`
+    }
 
-    return new Promise<string>((resolve) => {
-      const child = spawn("bun", [scriptPath, ...args.split(/\s+/).filter(Boolean)], {
-        cwd: context.worktree,
-        env: { ...process.env },
-        timeout: 30_000,
-      });
+    const argv = input.args ? input.args.trim().split(/\s+/) : []
+    const result = spawnSync("bun", [EXTRACT_PATH, ...argv], {
+      cwd: dirname(OPENCODE_DIR),
+      env: { ...process.env },
+      timeout: 30_000,
+      encoding: "utf-8",
+    })
 
-      let stdout = "";
-      let stderr = "";
-      child.stdout.on("data", (d: Buffer) => (stdout += d.toString()));
-      child.stderr.on("data", (d: Buffer) => (stderr += d.toString()));
+    const output = ((result.stdout || "") + (result.stderr ? "\n" + result.stderr : "")).trim()
 
-      child.on("close", (code) => {
-        const output = (stdout + (stderr ? "\n" + stderr : "")).trim();
-        if (code !== 0) {
-          resolve(`[exit ${code}]\n${output}`);
-        } else {
-          resolve(output);
-        }
-      });
+    if (result.status !== 0) {
+      return `[exit ${result.status}]\n${output}`
+    }
 
-      child.on("error", (err) => {
-        resolve(`[error] ${err.message}`);
-      });
-    });
+    return output
   },
-});
+})
