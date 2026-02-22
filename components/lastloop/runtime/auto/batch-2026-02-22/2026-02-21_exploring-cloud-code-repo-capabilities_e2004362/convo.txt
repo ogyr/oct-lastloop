@@ -1,0 +1,2845 @@
+# Conversation: Exploring cloud-code repo capabilities
+# Session ID: ses_37e28b54affemTM1aBAH57ePgy
+# Created: 2026-02-21 20:14:56
+# Messages: 14, Parts: 48
+# Workspace: batch-2026-02-22
+
+================================================================================
+
+## USER [plan] (claude-opus-4-6) — 2026-02-21 20:14:56
+
+i need to thoroughly understand capabilities of https://github.com/miantiao-me/cloud-code, i am interested in running a web frontend connecting to an opencode instance. most of this repo seems redundant or features i dont need, but maybe there is something here to use
+
+----------------------------------------
+
+## ASSISTANT [plan] — 2026-02-21 20:14:56
+
+--- step-start ---
+
+
+
+I'll thoroughly analyze the cloud-code repository to understand its architecture and identify what's useful for connecting a web frontend to an OpenCode instance.
+
+[TOOL: webfetch] (completed)
+Input: {
+  "url": "https://github.com/miantiao-me/cloud-code",
+  "format": "markdown"
+}
+Output:                      GitHub - miantiao-me/cloud-code: Cloud Code (Cloudflare + OpenCode), running OpenCode on Cloudflare to build a dedicated cloud Agent for you.                                             
+
+[Skip to content](#start-of-content)   
+
+## Navigation Menu
+
+Toggle navigation
+
+[](/)
+
+[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fmiantiao-me%2Fcloud-code)
+
+Appearance settings
+
+  
+
+-   Platform
+    
+    -   AI CODE CREATION
+        
+        -   [
+            
+            GitHub CopilotWrite better code with AI
+            
+            ](https://github.com/features/copilot)
+        -   [
+            
+            GitHub SparkBuild and deploy intelligent apps
+            
+            ](https://github.com/features/spark)
+        -   [
+            
+            GitHub ModelsManage and compare prompts
+            
+            ](https://github.com/features/models)
+        -   [
+            
+            MCP RegistryNewIntegrate external tools
+            
+            ](https://github.com/mcp)
+        
+    -   DEVELOPER WORKFLOWS
+        
+        -   [
+            
+            ActionsAutomate any workflow
+            
+            ](https://github.com/features/actions)
+        -   [
+            
+            CodespacesInstant dev environments
+            
+            ](https://github.com/features/codespaces)
+        -   [
+            
+            IssuesPlan and track work
+            
+            ](https://github.com/features/issues)
+        -   [
+            
+            Code ReviewManage code changes
+            
+            ](https://github.com/features/code-review)
+        
+    -   APPLICATION SECURITY
+        
+        -   [
+            
+            GitHub Advanced SecurityFind and fix vulnerabilities
+            
+            ](https://github.com/security/advanced-security)
+        -   [
+            
+            Code securitySecure your code as you build
+            
+            ](https://github.com/security/advanced-security/code-security)
+        -   [
+            
+            Secret protectionStop leaks before they start
+            
+            ](https://github.com/security/advanced-security/secret-protection)
+        
+    -   EXPLORE
+        
+        -   [Why GitHub](https://github.com/why-github)
+        -   [Documentation](https://docs.github.com)
+        -   [Blog](https://github.blog)
+        -   [Changelog](https://github.blog/changelog)
+        -   [Marketplace](https://github.com/marketplace)
+        
+    
+    [View all features](https://github.com/features)
+    
+-   Solutions
+    
+    -   BY COMPANY SIZE
+        
+        -   [Enterprises](https://github.com/enterprise)
+        -   [Small and medium teams](https://github.com/team)
+        -   [Startups](https://github.com/enterprise/startups)
+        -   [Nonprofits](https://github.com/solutions/industry/nonprofits)
+        
+    -   BY USE CASE
+        
+        -   [App Modernization](https://github.com/solutions/use-case/app-modernization)
+        -   [DevSecOps](https://github.com/solutions/use-case/devsecops)
+        -   [DevOps](https://github.com/solutions/use-case/devops)
+        -   [CI/CD](https://github.com/solutions/use-case/ci-cd)
+        -   [View all use cases](https://github.com/solutions/use-case)
+        
+    -   BY INDUSTRY
+        
+        -   [Healthcare](https://github.com/solutions/industry/healthcare)
+        -   [Financial services](https://github.com/solutions/industry/financial-services)
+        -   [Manufacturing](https://github.com/solutions/industry/manufacturing)
+        -   [Government](https://github.com/solutions/industry/government)
+        -   [View all industries](https://github.com/solutions/industry)
+        
+    
+    [View all solutions](https://github.com/solutions)
+    
+-   Resources
+    
+    -   EXPLORE BY TOPIC
+        
+        -   [AI](https://github.com/resources/articles?topic=ai)
+        -   [Software Development](https://github.com/resources/articles?topic=software-development)
+        -   [DevOps](https://github.com/resources/articles?topic=devops)
+        -   [Security](https://github.com/resources/articles?topic=security)
+        -   [View all topics](https://github.com/resources/articles)
+        
+    -   EXPLORE BY TYPE
+        
+        -   [Customer stories](https://github.com/customer-stories)
+        -   [Events & webinars](https://github.com/resources/events)
+        -   [Ebooks & reports](https://github.com/resources/whitepapers)
+        -   [Business insights](https://github.com/solutions/executive-insights)
+        -   [GitHub Skills](https://skills.github.com)
+        
+    -   SUPPORT & SERVICES
+        
+        -   [Documentation](https://docs.github.com)
+        -   [Customer support](https://support.github.com)
+        -   [Community forum](https://github.com/orgs/community/discussions)
+        -   [Trust center](https://github.com/trust-center)
+        -   [Partners](https://github.com/partners)
+        
+    
+-   Open Source
+    
+    -   COMMUNITY
+        
+        -   [
+            
+            GitHub SponsorsFund open source developers
+            
+            ](https://github.com/sponsors)
+        
+    -   PROGRAMS
+        
+        -   [Security Lab](https://securitylab.github.com)
+        -   [Maintainer Community](https://maintainers.github.com)
+        -   [Accelerator](https://github.com/accelerator)
+        -   [Archive Program](https://archiveprogram.github.com)
+        
+    -   REPOSITORIES
+        
+        -   [Topics](https://github.com/topics)
+        -   [Trending](https://github.com/trending)
+        -   [Collections](https://github.com/collections)
+        
+    
+-   Enterprise
+    
+    -   ENTERPRISE SOLUTIONS
+        
+        -   [
+            
+            Enterprise platformAI-powered developer platform
+            
+            ](https://github.com/enterprise)
+        
+    -   AVAILABLE ADD-ONS
+        
+        -   [
+            
+            GitHub Advanced SecurityEnterprise-grade security features
+            
+            ](https://github.com/security/advanced-security)
+        -   [
+            
+            Copilot for BusinessEnterprise-grade AI features
+            
+            ](https://github.com/features/copilot/copilot-business)
+        -   [
+            
+            Premium SupportEnterprise-grade 24/7 support
+            
+            ](https://github.com/premium-support)
+        
+    
+-   [Pricing](https://github.com/pricing)
+
+Search or jump to...
+
+# Search code, repositories, users, issues, pull requests...
+
+Search
+
+Clear
+
+[Search syntax tips](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax)
+
+# Provide feedback
+
+We read every piece of feedback, and take your input very seriously.
+
+ Include my email address so I can be contacted
+
+Cancel Submit feedback
+
+# Saved searches
+
+## Use saved searches to filter your results more quickly
+
+Name  
+
+Query 
+
+To see all available qualifiers, see our [documentation](https://docs.github.com/search-github/github-code-search/understanding-github-code-search-syntax).
+
+Cancel Create saved search
+
+[Sign in](/login?return_to=https%3A%2F%2Fgithub.com%2Fmiantiao-me%2Fcloud-code)
+
+[Sign up](/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E&source=header-repo&source_repo=miantiao-me%2Fcloud-code)
+
+Appearance settings
+
+Resetting focus
+
+You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. Dismiss alert
+
+[miantiao-me](/miantiao-me) / **[cloud-code](/miantiao-me/cloud-code)** Public
+
+-   [Notifications](/login?return_to=%2Fmiantiao-me%2Fcloud-code) You must be signed in to change notification settings
+-   [Fork 50](/login?return_to=%2Fmiantiao-me%2Fcloud-code)
+-   [Star 489](/login?return_to=%2Fmiantiao-me%2Fcloud-code)
+    
+
+Cloud Code (Cloudflare + OpenCode), running OpenCode on Cloudflare to build a dedicated cloud Agent for you.
+
+### License
+
+[MIT license](/miantiao-me/cloud-code/blob/master/LICENSE)
+
+[489 stars](/miantiao-me/cloud-code/stargazers) [50 forks](/miantiao-me/cloud-code/forks) [Branches](/miantiao-me/cloud-code/branches) [Tags](/miantiao-me/cloud-code/tags) [Activity](/miantiao-me/cloud-code/activity)
+
+[Star](/login?return_to=%2Fmiantiao-me%2Fcloud-code)
+
+[Notifications](/login?return_to=%2Fmiantiao-me%2Fcloud-code) You must be signed in to change notification settings
+
+-   [Code](/miantiao-me/cloud-code)
+-   [Issues 1](/miantiao-me/cloud-code/issues)
+-   [Pull requests 0](/miantiao-me/cloud-code/pulls)
+-   [Actions](/miantiao-me/cloud-code/actions)
+-   [Projects 0](/miantiao-me/cloud-code/projects)
+-   [Security 0](/miantiao-me/cloud-code/security)
+-   [Insights](/miantiao-me/cloud-code/pulse)
+
+Additional navigation options
+
+-   [Code](/miantiao-me/cloud-code)
+-   [Issues](/miantiao-me/cloud-code/issues)
+-   [Pull requests](/miantiao-me/cloud-code/pulls)
+-   [Actions](/miantiao-me/cloud-code/actions)
+-   [Projects](/miantiao-me/cloud-code/projects)
+-   [Security](/miantiao-me/cloud-code/security)
+-   [Insights](/miantiao-me/cloud-code/pulse)
+
+# miantiao-me/cloud-code
+
+   
+
+ master
+
+[Branches](/miantiao-me/cloud-code/branches)[Tags](/miantiao-me/cloud-code/tags)
+
+[](/miantiao-me/cloud-code/branches)[](/miantiao-me/cloud-code/tags)
+
+Go to file
+
+Code
+
+Open more actions menu
+
+## Folders and files
+
+Name
+
+Name
+
+Last commit message
+
+Last commit date
+
+## Latest commit
+
+## History
+
+[12 Commits](/miantiao-me/cloud-code/commits/master/)
+
+[](/miantiao-me/cloud-code/commits/master/)12 Commits
+
+[.vscode](/miantiao-me/cloud-code/tree/master/.vscode ".vscode")
+
+[.vscode](/miantiao-me/cloud-code/tree/master/.vscode ".vscode")
+
+[config/opencode](/miantiao-me/cloud-code/tree/master/config/opencode "This path skips through empty directories")
+
+[config/opencode](/miantiao-me/cloud-code/tree/master/config/opencode "This path skips through empty directories")
+
+[src](/mi
+... (truncated from 20435 chars)
+
+--- step-finish (cost: 0.23296, tokens: {"total":36929,"input":2,"output":115,"reasoning":0,"cache":{"read":0,"write":36812}}) ---
+
+----------------------------------------
+
+## ASSISTANT [plan] — 2026-02-21 20:15:00
+
+--- step-start ---
+
+Now let me dig into the actual source code to understand the architecture, particularly the SSE communication layer and the web frontend aspects.
+
+[TOOL: webfetch] (completed)
+Input: {
+  "url": "https://raw.githubusercontent.com/miantiao-me/cloud-code/master/src/index.ts",
+  "format": "text"
+}
+Output: import { env } from 'cloudflare:workers'
+import { forwardRequestToContainer } from './container'
+
+export { AgentContainer } from './container'
+
+function verifyBasicAuth(request: Request): Response | null {
+  const username = env.SERVER_USERNAME
+  const password = env.SERVER_PASSWORD
+
+  if (!password) {
+    return null
+  }
+
+  const authorization = request.headers.get('Authorization')
+  if (!authorization?.startsWith('Basic ')) {
+    return new Response('Unauthorized', {
+      status: 401,
+      headers: { 'WWW-Authenticate': 'Basic realm="Agent"' },
+    })
+  }
+
+  const expected = btoa(`${username}:${password}`)
+  const provided = authorization.slice(6)
+
+  if (provided !== expected) {
+    return new Response('Unauthorized', { status: 401 })
+  }
+
+  return null
+}
+
+async function handleFetch(request: Request) {
+  const authError = verifyBasicAuth(request)
+  if (authError) {
+    return authError
+  }
+  return forwardRequestToContainer(request)
+}
+
+export default {
+  fetch: handleFetch,
+} satisfies ExportedHandler<Cloudflare.Env>
+
+
+[TOOL: webfetch] (completed)
+Input: {
+  "url": "https://raw.githubusercontent.com/miantiao-me/cloud-code/master/src/sse.ts",
+  "format": "text"
+}
+Output: export interface SSEEvent {
+  payload?: {
+    type?: string
+  }
+}
+
+export type SSEEventHandler = (event: SSEEvent) => void
+
+export async function processSSEStream(
+  reader: ReadableStreamDefaultReader<Uint8Array>,
+  onEvent: SSEEventHandler,
+) {
+  const decoder = new TextDecoder()
+  let buffer = ''
+
+  while (true) {
+    const { done, value } = await reader.read()
+    if (done) break
+
+    buffer += decoder.decode(value, { stream: true })
+    const lines = buffer.split('\n')
+    buffer = lines.pop() ?? ''
+
+    for (const line of lines) {
+      const trimmed = line.trim()
+      if (!trimmed.startsWith('data: ')) continue
+
+      try {
+        const event = JSON.parse(trimmed.slice(6)) as SSEEvent
+        onEvent(event)
+      } catch {
+        // Skip on JSON parse failure
+      }
+    }
+  }
+}
+
+
+[TOOL: webfetch] (completed)
+Input: {
+  "url": "https://raw.githubusercontent.com/miantiao-me/cloud-code/master/src/container.ts",
+  "format": "text"
+}
+Output: import { Container } from '@cloudflare/containers'
+import { env } from 'cloudflare:workers'
+import { processSSEStream } from './sse'
+
+const PORT = 2633
+
+const containerEnv = Object.fromEntries(
+  Object.entries(env).filter(([, value]) => typeof value === 'string'),
+)
+
+export class AgentContainer extends Container {
+  sleepAfter = '10m'
+  defaultPort = PORT
+
+  private _watchPromise?: Promise<void>
+
+  envVars = {
+    ...containerEnv,
+    PORT: PORT.toString(),
+  }
+
+  async watchContainer() {
+    try {
+      const res = await this.containerFetch('http://container/global/event')
+      const reader = res.body?.getReader()
+      if (reader) {
+        await processSSEStream(reader, (event) => {
+          const eventType = event.payload?.type
+
+          if (eventType === 'session.updated') {
+            this.renewActivityTimeout()
+            console.info('Renewed container activity timeout')
+          }
+
+          if (eventType !== 'message.part.updated') {
+            console.info('SSE event:', JSON.stringify(event.payload))
+          }
+        })
+      }
+    } catch (error) {
+      console.error('SSE connection error:', error)
+      console.info(this._watchPromise)
+    }
+  }
+
+  override async onStart(): Promise<void> {
+    // Fire-and-forget: let SSE listener run in background to avoid blocking blockConcurrencyWhile
+    this._watchPromise = this.watchContainer()
+  }
+}
+
+const SINGLETON_CONTAINER_ID = 'cf-singleton-container'
+
+export async function forwardRequestToContainer(request: Request) {
+  const objectId = env.AGENT_CONTAINER.idFromName(SINGLETON_CONTAINER_ID)
+  const container = env.AGENT_CONTAINER.get(objectId, {
+    locationHint: 'wnam', // Force west US region
+  })
+
+  return container.fetch(request)
+}
+
+
+[TOOL: webfetch] (completed)
+Input: {
+  "url": "https://raw.githubusercontent.com/miantiao-me/cloud-code/master/Dockerfile",
+  "format": "text"
+}
+Output: FROM nikolaik/python-nodejs:python3.12-nodejs22-bookworm
+
+ENV NODE_ENV=production
+
+ARG TIGRISFS_VERSION=1.2.1
+ARG CLOUDFLARED_DEB_URL=https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+
+# Install system dependencies + tigrisfs/cloudflared/opencode, then clean cache
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+      fuse \
+      ca-certificates \
+      curl; \
+    \
+    curl -fsSL "https://github.com/tigrisdata/tigrisfs/releases/download/v${TIGRISFS_VERSION}/tigrisfs_${TIGRISFS_VERSION}_linux_amd64.deb" -o /tmp/tigrisfs.deb; \
+    dpkg -i /tmp/tigrisfs.deb; \
+    rm -f /tmp/tigrisfs.deb; \
+    \
+    curl -fsSL "${CLOUDFLARED_DEB_URL}" -o /tmp/cloudflared.deb; \
+    dpkg -i /tmp/cloudflared.deb; \
+    rm -f /tmp/cloudflared.deb; \
+    \
+    curl -fsSL https://opencode.ai/install | bash -s -- --no-modify-path; \
+    mv /root/.opencode/bin/opencode /usr/local/bin/opencode; \
+    \
+    rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
+
+# Copy preset config
+COPY config /opt/config-init
+
+# Create startup script
+RUN install -m 755 /dev/stdin /entrypoint.sh <<'EOF'
+#!/bin/bash
+set -e
+
+MOUNT_POINT="/root/s3"
+WORKSPACE_DIR="$MOUNT_POINT/workspace"
+XDG_DIR="$MOUNT_POINT/.opencode"
+GLOBAL_CONFIG_DIR="$XDG_DIR/config/opencode"
+CONFIG_INIT_DIR="/opt/config-init/opencode"
+
+# Initialize workspace and XDG environment variables
+setup_workspace() {
+    mkdir -p "$WORKSPACE_DIR/project" "$GLOBAL_CONFIG_DIR" "$XDG_DIR"/{data,state}
+    export XDG_CONFIG_HOME="$XDG_DIR/config"
+    export XDG_DATA_HOME="$XDG_DIR/data"
+    export XDG_STATE_HOME="$XDG_DIR/state"
+    PROJECT_DIR="$WORKSPACE_DIR/project"
+
+    # Copy config files only if they not exist
+    for file in opencode.json AGENTS.md; do
+        if [ ! -f "$GLOBAL_CONFIG_DIR/$file" ]; then
+            cp "$CONFIG_INIT_DIR/$file" "$GLOBAL_CONFIG_DIR/" 2>/dev/null && echo "[INFO] Initialized $file" || true
+        fi
+    done
+}
+
+# Ensure mount point is a clean directory
+reset_mountpoint() {
+    mountpoint -q "$MOUNT_POINT" 2>/dev/null && fusermount -u "$MOUNT_POINT" 2>/dev/null || true
+    rm -rf "$MOUNT_POINT"
+    mkdir -p "$MOUNT_POINT"
+}
+
+reset_mountpoint
+
+if [ -z "$S3_ENDPOINT" ] || [ -z "$S3_BUCKET" ] || [ -z "$S3_ACCESS_KEY_ID" ] || [ -z "$S3_SECRET_ACCESS_KEY" ]; then
+    echo "[WARN] Incomplete S3 config, using local directory mode"
+else
+    echo "[INFO] Mounting S3: ${S3_BUCKET} -> ${MOUNT_POINT}"
+
+    export AWS_ACCESS_KEY_ID="$S3_ACCESS_KEY_ID"
+    export AWS_SECRET_ACCESS_KEY="$S3_SECRET_ACCESS_KEY"
+    export AWS_REGION="${S3_REGION:-auto}"
+    export AWS_S3_PATH_STYLE="${S3_PATH_STYLE:-false}"
+
+    /usr/bin/tigrisfs --endpoint "$S3_ENDPOINT" ${TIGRISFS_ARGS:-} -f "${S3_BUCKET}${S3_PREFIX:+:$S3_PREFIX}" "$MOUNT_POINT" &
+    sleep 3
+
+    if ! mountpoint -q "$MOUNT_POINT"; then
+        echo "[ERROR] S3 mount failed"
+        exit 1
+    fi
+    echo "[OK] S3 mounted successfully"
+fi
+
+setup_workspace
+
+cleanup() {
+    echo "[INFO] Shutting down..."
+    if [ -n "$OPENCODE_PID" ]; then
+        kill -TERM "$OPENCODE_PID" 2>/dev/null
+        wait "$OPENCODE_PID" 2>/dev/null
+    fi
+    if mountpoint -q "$MOUNT_POINT" 2>/dev/null; then
+        fusermount -u "$MOUNT_POINT" 2>/dev/null || true
+    fi
+    exit 0
+}
+trap cleanup SIGTERM SIGINT
+
+echo "[INFO] Starting OpenCode..."
+cd "$PROJECT_DIR"
+opencode web --port 2633 --hostname 0.0.0.0 &
+OPENCODE_PID=$!
+wait $OPENCODE_PID
+EOF
+
+WORKDIR /root/s3/workspace
+EXPOSE 2633
+
+CMD ["/entrypoint.sh"]
+
+
+[TOOL: webfetch] (completed)
+Input: {
+  "url": "https://raw.githubusercontent.com/miantiao-me/cloud-code/master/package.json",
+  "format": "text"
+}
+Output: {
+  "name": "cloud-code",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "start": "wrangler dev",
+    "cf-typegen": "wrangler types",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check"
+  },
+  "devDependencies": {
+    "@cloudflare/containers": "^0.1.0",
+    "oxfmt": "^0.27.0",
+    "oxlint": "^1.42.0",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.61.0"
+  },
+  "packageManager": "pnpm@10.28.2"
+}
+
+
+[TOOL: webfetch] (completed)
+Input: {
+  "url": "https://raw.githubusercontent.com/miantiao-me/cloud-code/master/wrangler.jsonc",
+  "format": "text"
+}
+Output: {
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cloud-code",
+  "main": "./src/index.ts",
+  "compatibility_date": "2026-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "minify": true,
+  "upload_source_maps": true,
+  "keep_vars": true,
+  "observability": {
+    "traces": {
+      "enabled": true,
+    },
+    "logs": {
+      "enabled": true,
+    },
+  },
+  "placement": {
+    "region": "aws:us-west-2",
+  },
+  "containers": [
+    {
+      "name": "cloud-code-container",
+      "class_name": "AgentContainer",
+      "image": "./Dockerfile",
+      "instance_type": {
+        "vcpu": 1,
+        "memory_mib": 4096,
+        "disk_mb": 8192,
+      },
+      "max_instances": 1,
+      "constraints": {
+        "region": ["wnam"],
+      },
+    },
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "class_name": "AgentContainer",
+        "name": "AGENT_CONTAINER",
+      },
+    ],
+  },
+  "migrations": [
+    {
+      "new_sqlite_classes": ["AgentContainer"],
+      "tag": "container",
+    },
+  ],
+}
+
+
+--- step-finish (cost: 0.07262975, tokens: {"total":43979,"input":1,"output":503,"reasoning":0,"cache":{"read":36812,"write":6663}}) ---
+
+----------------------------------------
+
+## ASSISTANT [plan] — 2026-02-21 20:15:08
+
+--- step-start ---
+
+Now let me also check the OpenCode config files and see if there's any web frontend code bundled:
+
+[TOOL: webfetch] (completed)
+Input: {
+  "url": "https://raw.githubusercontent.com/miantiao-me/cloud-code/master/config/opencode/opencode.json",
+  "format": "text"
+}
+Output: {
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "permission": "allow"
+}
+
+
+[TOOL: webfetch] (completed)
+Input: {
+  "url": "https://raw.githubusercontent.com/miantiao-me/cloud-code/master/config/opencode/AGENTS.md",
+  "format": "text"
+}
+Output: # Global Rules
+
+## Notes
+
+- Current project runs in a sandbox environment where commands and code can be executed.
+
+
+[TOOL: webfetch] (completed)
+Input: {
+  "url": "https://raw.githubusercontent.com/miantiao-me/cloud-code/master/.env.example",
+  "format": "text"
+}
+Output: # Server Config
+SERVER_USERNAME=agili
+SERVER_PASSWORD=cloud-code
+
+# S3 Persistence Config
+S3_ENDPOINT=https://9527.r2.cloudflarestorage.com
+S3_ACCESS_KEY_ID=32bfda90b5f5fc35f32bfda90b5f5fc35f
+S3_SECRET_ACCESS_KEY=ffcc895424560de1737ffcc895424560de1737ffcc895424560de1
+S3_BUCKET=storage
+S3_PREFIX=cloud-code
+
+
+--- step-finish (cost: 0.09135475, tokens: {"total":47653,"input":1,"output":277,"reasoning":0,"cache":{"read":36812,"write":10563}}) ---
+
+----------------------------------------
+
+## ASSISTANT [plan] — 2026-02-21 20:15:13
+
+--- step-start ---
+
+Now let me also understand what `opencode web` actually serves — this is the critical piece. Let me check OpenCode's own documentation about the web mode:
+
+[TOOL: webfetch] (completed)
+Input: {
+  "url": "https://opencode.ai/docs",
+  "format": "markdown"
+}
+Output: Intro | AI coding agent built for the terminalIntro | OpenCode     [Skip to content](#_top)
+
+  [![](/docs/_astro/logo-dark.DOStV66V.svg) ![](/docs/_astro/logo-light.B0yzR0O5.svg) OpenCode](/docs/)
+
+[app.header.home](/)[app.header.docs](/docs/)
+
+[](https://github.com/anomalyco/opencode)[](https://opencode.ai/discord)
+
+Search CtrlK
+
+Cancel
+
+-   [Intro](/docs/)
+-   [Config](/docs/config/)
+-   [Providers](/docs/providers/)
+-   [Network](/docs/network/)
+-   [Enterprise](/docs/enterprise/)
+-   [Troubleshooting](/docs/troubleshooting/)
+-   [Windows](/docs/windows-wsl)
+-   Usage
+    
+    -   [TUI](/docs/tui/)
+    -   [CLI](/docs/cli/)
+    -   [Web](/docs/web/)
+    -   [IDE](/docs/ide/)
+    -   [Zen](/docs/zen/)
+    -   [Share](/docs/share/)
+    -   [GitHub](/docs/github/)
+    -   [GitLab](/docs/gitlab/)
+    
+-   Configure
+    
+    -   [Tools](/docs/tools/)
+    -   [Rules](/docs/rules/)
+    -   [Agents](/docs/agents/)
+    -   [Models](/docs/models/)
+    -   [Themes](/docs/themes/)
+    -   [Keybinds](/docs/keybinds/)
+    -   [Commands](/docs/commands/)
+    -   [Formatters](/docs/formatters/)
+    -   [Permissions](/docs/permissions/)
+    -   [LSP Servers](/docs/lsp/)
+    -   [MCP servers](/docs/mcp-servers/)
+    -   [ACP Support](/docs/acp/)
+    -   [Agent Skills](/docs/skills/)
+    -   [Custom Tools](/docs/custom-tools/)
+    
+-   Develop
+    
+    -   [SDK](/docs/sdk/)
+    -   [Server](/docs/server/)
+    -   [Plugins](/docs/plugins/)
+    -   [Ecosystem](/docs/ecosystem/)
+    
+
+[GitHub](https://github.com/anomalyco/opencode)[Discord](https://opencode.ai/discord)
+
+Select theme DarkLightAuto   Select language EnglishالعربيةBosanskiDanskDeutschEspañolFrançaisItaliano日本語한국어Norsk BokmålPolskiPortuguês (Brasil)РусскийไทยTürkçe简体中文繁體中文
+
+On this page
+
+-   [Overview](#_top)
+-   [Install](#install)
+-   [Configure](#configure)
+-   [Initialize](#initialize)
+-   [Usage](#usage)
+    -   [Ask questions](#ask-questions)
+    -   [Add features](#add-features)
+    -   [Make changes](#make-changes)
+    -   [Undo changes](#undo-changes)
+-   [Share](#share)
+-   [Customize](#customize)
+
+## On this page
+
+-   [Overview](#_top)
+-   [Install](#install)
+-   [Configure](#configure)
+-   [Initialize](#initialize)
+-   [Usage](#usage)
+    -   [Ask questions](#ask-questions)
+    -   [Add features](#add-features)
+    -   [Make changes](#make-changes)
+    -   [Undo changes](#undo-changes)
+-   [Share](#share)
+-   [Customize](#customize)
+
+# Intro
+
+Get started with OpenCode.
+
+[**OpenCode**](/) is an open source AI coding agent. It’s available as a terminal-based interface, desktop app, or IDE extension.
+
+![OpenCode TUI with the opencode theme](/docs/_astro/screenshot.CQjBbRyJ_1dLadc.webp)
+
+Let’s get started.
+
+---
+
+#### [Prerequisites](#prerequisites)
+
+To use OpenCode in your terminal, you’ll need:
+
+1.  A modern terminal emulator like:
+    
+    -   [WezTerm](https://wezterm.org), cross-platform
+    -   [Alacritty](https://alacritty.org), cross-platform
+    -   [Ghostty](https://ghostty.org), Linux and macOS
+    -   [Kitty](https://sw.kovidgoyal.net/kitty/), Linux and macOS
+2.  API keys for the LLM providers you want to use.
+    
+
+---
+
+## [Install](#install)
+
+The easiest way to install OpenCode is through the install script.
+
+Terminal window
+
+```
+curl -fsSL https://opencode.ai/install | bash
+```
+
+You can also install it with the following commands:
+
+-   **Using Node.js**
+    
+    -   [npm](#tab-panel-0)
+    -   [Bun](#tab-panel-1)
+    -   [pnpm](#tab-panel-2)
+    -   [Yarn](#tab-panel-3)
+    
+    Terminal window
+    
+    ```
+    npm install -g opencode-ai
+    ```
+    
+    Terminal window
+    
+    ```
+    bun install -g opencode-ai
+    ```
+    
+    Terminal window
+    
+    ```
+    pnpm install -g opencode-ai
+    ```
+    
+    Terminal window
+    
+    ```
+    yarn global add opencode-ai
+    ```
+    
+-   **Using Homebrew on macOS and Linux**
+    
+    Terminal window
+    
+    ```
+    brew install anomalyco/tap/opencode
+    ```
+    
+    > We recommend using the OpenCode tap for the most up to date releases. The official `brew install opencode` formula is maintained by the Homebrew team and is updated less frequently.
+    
+-   **Installing on Arch Linux**
+    
+    Terminal window
+    
+    ```
+    sudo pacman -S opencode           # Arch Linux (Stable)paru -S opencode-bin              # Arch Linux (Latest from AUR)
+    ```
+    
+
+#### [Windows](#windows)
+
+Recommended: Use WSL
+
+For the best experience on Windows, we recommend using [Windows Subsystem for Linux (WSL)](/docs/windows-wsl). It provides better performance and full compatibility with OpenCode’s features.
+
+-   **Using Chocolatey**
+    
+    Terminal window
+    
+    ```
+    choco install opencode
+    ```
+    
+-   **Using Scoop**
+    
+    Terminal window
+    
+    ```
+    scoop install opencode
+    ```
+    
+-   **Using NPM**
+    
+    Terminal window
+    
+    ```
+    npm install -g opencode-ai
+    ```
+    
+-   **Using Mise**
+    
+    Terminal window
+    
+    ```
+    mise use -g github:anomalyco/opencode
+    ```
+    
+-   **Using Docker**
+    
+    Terminal window
+    
+    ```
+    docker run -it --rm ghcr.io/anomalyco/opencode
+    ```
+    
+
+Support for installing OpenCode on Windows using Bun is currently in progress.
+
+You can also grab the binary from the [Releases](https://github.com/anomalyco/opencode/releases).
+
+---
+
+## [Configure](#configure)
+
+With OpenCode you can use any LLM provider by configuring their API keys.
+
+If you are new to using LLM providers, we recommend using [OpenCode Zen](/docs/zen). It’s a curated list of models that have been tested and verified by the OpenCode team.
+
+1.  Run the `/connect` command in the TUI, select opencode, and head to [opencode.ai/auth](https://opencode.ai/auth).
+    
+    ```
+    /connect
+    ```
+    
+2.  Sign in, add your billing details, and copy your API key.
+    
+3.  Paste your API key.
+    
+    ```
+    ┌ API key││└ enter
+    ```
+    
+
+Alternatively, you can select one of the other providers. [Learn more](/docs/providers#directory).
+
+---
+
+## [Initialize](#initialize)
+
+Now that you’ve configured a provider, you can navigate to a project that you want to work on.
+
+Terminal window
+
+```
+cd /path/to/project
+```
+
+And run OpenCode.
+
+Terminal window
+
+```
+opencode
+```
+
+Next, initialize OpenCode for the project by running the following command.
+
+```
+/init
+```
+
+This will get OpenCode to analyze your project and create an `AGENTS.md` file in the project root.
+
+Tip
+
+You should commit your project’s `AGENTS.md` file to Git.
+
+This helps OpenCode understand the project structure and the coding patterns used.
+
+---
+
+## [Usage](#usage)
+
+You are now ready to use OpenCode to work on your project. Feel free to ask it anything!
+
+If you are new to using an AI coding agent, here are some examples that might help.
+
+---
+
+### [Ask questions](#ask-questions)
+
+You can ask OpenCode to explain the codebase to you.
+
+Tip
+
+Use the `@` key to fuzzy search for files in the project.
+
+```
+How is authentication handled in @packages/functions/src/api/index.ts
+```
+
+This is helpful if there’s a part of the codebase that you didn’t work on.
+
+---
+
+### [Add features](#add-features)
+
+You can ask OpenCode to add new features to your project. Though we first recommend asking it to create a plan.
+
+1.  **Create a plan**
+    
+    OpenCode has a *Plan mode* that disables its ability to make changes and instead suggest *how* it’ll implement the feature.
+    
+    Switch to it using the **Tab** key. You’ll see an indicator for this in the lower right corner.
+    
+    ```
+    <TAB>
+    ```
+    
+    Now let’s describe what we want it to do.
+    
+    ```
+    When a user deletes a note, we'd like to flag it as deleted in the database.Then create a screen that shows all the recently deleted notes.From this screen, the user can undelete a note or permanently delete it.
+    ```
+    
+    You want to give OpenCode enough details to understand what you want. It helps to talk to it like you are talking to a junior developer on your team.
+    
+    Tip
+    
+    Give OpenCode plenty of context and examples to help it understand what you want.
+    
+2.  **Iterate on the plan**
+    
+    Once it gives you a plan, you can give it feedback or add more details.
+    
+    ```
+    We'd like to design this new screen using a design I've used before.[Image #1] Take a look at this image and use it as a reference.
+    ```
+    
+    Tip
+    
+    Drag and drop images into the terminal to add them to the prompt.
+    
+    OpenCode can scan any images you give it and add them to the prompt. You can do this by dragging and dropping an image into the terminal.
+    
+3.  **Build the feature**
+    
+    Once you feel comfortable with the plan, switch back to *Build mode* by hitting the **Tab** key again.
+    
+    ```
+    <TAB>
+    ```
+    
+    And asking it to make the changes.
+    
+    ```
+    Sounds good! Go ahead and make the changes.
+    ```
+    
+
+---
+
+### [Make changes](#make-changes)
+
+For more straightforward changes, you can ask OpenCode to directly build it without having to review the plan first.
+
+```
+We need to add authentication to the /settings route. Take a look at how this ishandled in the /notes route in @packages/functions/src/notes.ts and implementthe same logic in @packages/functions/src/settings.ts
+```
+
+You want to make sure you provide a good amount of detail so OpenCode makes the right changes.
+
+---
+
+### [Undo changes](#undo-changes)
+
+Let’s say you ask OpenCode to make some changes.
+
+```
+Can you refactor the function in @packages/functions/src/api/index.ts?
+```
+
+But you realize that it is not what you wanted. You **can undo** the changes using the `/undo` command.
+
+```
+/undo
+```
+
+OpenCode will now revert the changes you made and show your original message again.
+
+```
+Can you refactor the function in @packages/functions/src/api/index.ts?
+```
+
+From here you can tweak the prompt and ask OpenCode to try again.
+
+Tip
+
+You can run `/undo` multiple times to undo multiple changes.
+
+Or you **can redo** the changes using the `/redo` command.
+
+```
+/redo
+``
+... (truncated from 11134 chars)
+
+[TOOL: distill] (completed)
+Input: {
+  "targets": [
+    {
+      "id": "0",
+      "distillation": "GitHub repo page for miantiao-me/cloud-code. 489 stars, 50 forks, MIT license. 12 commits. Top-level files: .vscode/, config/opencode/, src/, .dockerignore, .editorconfig, .env.example, .gitignore, Dockerfile, AGENTS.md, README.md, package.json, pnpm-lock.yaml, pnpm-workspace.yaml, tsconfig.json, worker-configuration.d.ts, wrangler.jsonc. TypeScript 50.4%, Dockerfile 49.6%. Description: 'Cloud Code (Cloudflare + OpenCode), running OpenCode on Cloudflare to build a dedicated cloud Agent for you.' No releases, no packages."
+    },
+    {
+      "id": "5",
+      "distillation": "package.json: name='cloud-code', private, pnpm 10.28.2. Scripts: deploy(wrangler deploy), dev/start(wrangler dev), cf-typegen(wrangler types), lint/fmt. DevDeps: @cloudflare/containers ^0.1.0, oxfmt, oxlint, typescript ^5.9.3, wrangler ^4.61.0."
+    },
+    {
+      "id": "7",
+      "distillation": "OpenCode config: autoupdate=false, permission='allow' (auto-approve all tool calls)."
+    },
+    {
+      "id": "8",
+      "distillation": "AGENTS.md is trivial: just says 'Current project runs in a sandbox environment where commands and code can be executed.'"
+    },
+    {
+      "id": "9",
+      "distillation": ".env.example shows: SERVER_USERNAME, SERVER_PASSWORD (Basic Auth), S3_ENDPOINT, S3_ACCESS_KEY_ID, S3_SECRET_ACCESS_KEY, S3_BUCKET, S3_PREFIX for R2/S3 persistence."
+    }
+  ]
+}
+Output: Context pruning complete. Pruned 5 tool outputs.
+
+Semantically pruned (5):
+→ webfetch: https://github.com/miantiao-me/cloud-code
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+
+--- step-finish (cost: 0.10475475, tokens: {"total":48825,"input":1,"output":601,"reasoning":0,"cache":{"read":36812,"write":11411}}) ---
+
+----------------------------------------
+
+## USER [plan] (claude-opus-4-6) — 2026-02-21 20:15:25
+
+▣ DCP | ~6.6K tokens saved total
+
+▣ Pruning (~6.6K tokens, distilled 362 tokens)
+→ webfetch: https://github.com/miantiao-me/cloud-code
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+
+----------------------------------------
+
+## ASSISTANT [plan] — 2026-02-21 20:15:25
+
+--- step-start ---
+
+
+
+Let me also check the OpenCode web and server documentation, since those are the key pieces:
+
+[TOOL: webfetch] (completed)
+Input: {
+  "url": "https://opencode.ai/docs/web/",
+  "format": "markdown"
+}
+Output: Web | OpenCode     [Skip to content](#_top)
+
+  [![](/docs/_astro/logo-dark.DOStV66V.svg) ![](/docs/_astro/logo-light.B0yzR0O5.svg) OpenCode](/docs/)
+
+[app.header.home](/)[app.header.docs](/docs/)
+
+[](https://github.com/anomalyco/opencode)[](https://opencode.ai/discord)
+
+Search CtrlK
+
+Cancel
+
+-   [Intro](/docs/)
+-   [Config](/docs/config/)
+-   [Providers](/docs/providers/)
+-   [Network](/docs/network/)
+-   [Enterprise](/docs/enterprise/)
+-   [Troubleshooting](/docs/troubleshooting/)
+-   [Windows](/docs/windows-wsl)
+-   Usage
+    
+    -   [TUI](/docs/tui/)
+    -   [CLI](/docs/cli/)
+    -   [Web](/docs/web/)
+    -   [IDE](/docs/ide/)
+    -   [Zen](/docs/zen/)
+    -   [Share](/docs/share/)
+    -   [GitHub](/docs/github/)
+    -   [GitLab](/docs/gitlab/)
+    
+-   Configure
+    
+    -   [Tools](/docs/tools/)
+    -   [Rules](/docs/rules/)
+    -   [Agents](/docs/agents/)
+    -   [Models](/docs/models/)
+    -   [Themes](/docs/themes/)
+    -   [Keybinds](/docs/keybinds/)
+    -   [Commands](/docs/commands/)
+    -   [Formatters](/docs/formatters/)
+    -   [Permissions](/docs/permissions/)
+    -   [LSP Servers](/docs/lsp/)
+    -   [MCP servers](/docs/mcp-servers/)
+    -   [ACP Support](/docs/acp/)
+    -   [Agent Skills](/docs/skills/)
+    -   [Custom Tools](/docs/custom-tools/)
+    
+-   Develop
+    
+    -   [SDK](/docs/sdk/)
+    -   [Server](/docs/server/)
+    -   [Plugins](/docs/plugins/)
+    -   [Ecosystem](/docs/ecosystem/)
+    
+
+[GitHub](https://github.com/anomalyco/opencode)[Discord](https://opencode.ai/discord)
+
+Select theme DarkLightAuto   Select language EnglishالعربيةBosanskiDanskDeutschEspañolFrançaisItaliano日本語한국어Norsk BokmålPolskiPortuguês (Brasil)РусскийไทยTürkçe简体中文繁體中文
+
+On this page
+
+-   [Overview](#_top)
+-   [Getting Started](#getting-started)
+-   [Configuration](#configuration)
+    -   [Port](#port)
+    -   [Hostname](#hostname)
+    -   [mDNS Discovery](#mdns-discovery)
+    -   [CORS](#cors)
+    -   [Authentication](#authentication)
+-   [Using the Web Interface](#using-the-web-interface)
+    -   [Sessions](#sessions)
+    -   [Server Status](#server-status)
+-   [Attaching a Terminal](#attaching-a-terminal)
+-   [Config File](#config-file)
+
+## On this page
+
+-   [Overview](#_top)
+-   [Getting Started](#getting-started)
+-   [Configuration](#configuration)
+    -   [Port](#port)
+    -   [Hostname](#hostname)
+    -   [mDNS Discovery](#mdns-discovery)
+    -   [CORS](#cors)
+    -   [Authentication](#authentication)
+-   [Using the Web Interface](#using-the-web-interface)
+    -   [Sessions](#sessions)
+    -   [Server Status](#server-status)
+-   [Attaching a Terminal](#attaching-a-terminal)
+-   [Config File](#config-file)
+
+# Web
+
+Using OpenCode in your browser.
+
+OpenCode can run as a web application in your browser, providing the same powerful AI coding experience without needing a terminal.
+
+![OpenCode Web - New Session](/docs/_astro/web-homepage-new-session.BB1mEdgo_Z1AT1v3.webp)
+
+## [Getting Started](#getting-started)
+
+Start the web interface by running:
+
+Terminal window
+
+```
+opencode web
+```
+
+This starts a local server on `127.0.0.1` with a random available port and automatically opens OpenCode in your default browser.
+
+Caution
+
+If `OPENCODE_SERVER_PASSWORD` is not set, the server will be unsecured. This is fine for local use but should be set for network access.
+
+Windows Users
+
+For the best experience, run `opencode web` from [WSL](/docs/windows-wsl) rather than PowerShell. This ensures proper file system access and terminal integration.
+
+---
+
+## [Configuration](#configuration)
+
+You can configure the web server using command line flags or in your [config file](/docs/config).
+
+### [Port](#port)
+
+By default, OpenCode picks an available port. You can specify a port:
+
+Terminal window
+
+```
+opencode web --port 4096
+```
+
+### [Hostname](#hostname)
+
+By default, the server binds to `127.0.0.1` (localhost only). To make OpenCode accessible on your network:
+
+Terminal window
+
+```
+opencode web --hostname 0.0.0.0
+```
+
+When using `0.0.0.0`, OpenCode will display both local and network addresses:
+
+```
+  Local access:       http://localhost:4096  Network access:     http://192.168.1.100:4096
+```
+
+### [mDNS Discovery](#mdns-discovery)
+
+Enable mDNS to make your server discoverable on the local network:
+
+Terminal window
+
+```
+opencode web --mdns
+```
+
+This automatically sets the hostname to `0.0.0.0` and advertises the server as `opencode.local`.
+
+You can customize the mDNS domain name to run multiple instances on the same network:
+
+Terminal window
+
+```
+opencode web --mdns --mdns-domain myproject.local
+```
+
+### [CORS](#cors)
+
+To allow additional domains for CORS (useful for custom frontends):
+
+Terminal window
+
+```
+opencode web --cors https://example.com
+```
+
+### [Authentication](#authentication)
+
+To protect access, set a password using the `OPENCODE_SERVER_PASSWORD` environment variable:
+
+Terminal window
+
+```
+OPENCODE_SERVER_PASSWORD=secret opencode web
+```
+
+The username defaults to `opencode` but can be changed with `OPENCODE_SERVER_USERNAME`.
+
+---
+
+## [Using the Web Interface](#using-the-web-interface)
+
+Once started, the web interface provides access to your OpenCode sessions.
+
+### [Sessions](#sessions)
+
+View and manage your sessions from the homepage. You can see active sessions and start new ones.
+
+![OpenCode Web - Active Session](/docs/_astro/web-homepage-active-session.BbK4Ph6e_Z1O7nO1.webp)
+
+### [Server Status](#server-status)
+
+Click “See Servers” to view connected servers and their status.
+
+![OpenCode Web - See Servers](/docs/_astro/web-homepage-see-servers.BpCOef2l_ZB0rJd.webp)
+
+---
+
+## [Attaching a Terminal](#attaching-a-terminal)
+
+You can attach a terminal TUI to a running web server:
+
+Terminal window
+
+```
+# Start the web serveropencode web --port 4096
+# In another terminal, attach the TUIopencode attach http://localhost:4096
+```
+
+This allows you to use both the web interface and terminal simultaneously, sharing the same sessions and state.
+
+---
+
+## [Config File](#config-file)
+
+You can also configure server settings in your `opencode.json` config file:
+
+```
+{  "server": {    "port": 4096,    "hostname": "0.0.0.0",    "mdns": true,    "cors": ["https://example.com"]  }}
+```
+
+Command line flags take precedence over config file settings.
+
+[Edit page](https://github.com/anomalyco/opencode/edit/dev/packages/web/src/content/docs/web.mdx)[Found a bug? Open an issue](https://github.com/anomalyco/opencode/issues/new)[Join our Discord community](https://opencode.ai/discord) Select language EnglishالعربيةBosanskiDanskDeutschEspañolFrançaisItaliano日本語한국어Norsk BokmålPolskiPortuguês (Brasil)РусскийไทยTürkçe简体中文繁體中文 
+
+© [Anomaly](https://anoma.ly)
+
+Last updated: Feb 21, 2026
+
+[TOOL: webfetch] (completed)
+Input: {
+  "url": "https://opencode.ai/docs/server/",
+  "format": "markdown"
+}
+Output: Server | OpenCode     [Skip to content](#_top)
+
+  [![](/docs/_astro/logo-dark.DOStV66V.svg) ![](/docs/_astro/logo-light.B0yzR0O5.svg) OpenCode](/docs/)
+
+[app.header.home](/)[app.header.docs](/docs/)
+
+[](https://github.com/anomalyco/opencode)[](https://opencode.ai/discord)
+
+Search CtrlK
+
+Cancel
+
+-   [Intro](/docs/)
+-   [Config](/docs/config/)
+-   [Providers](/docs/providers/)
+-   [Network](/docs/network/)
+-   [Enterprise](/docs/enterprise/)
+-   [Troubleshooting](/docs/troubleshooting/)
+-   [Windows](/docs/windows-wsl)
+-   Usage
+    
+    -   [TUI](/docs/tui/)
+    -   [CLI](/docs/cli/)
+    -   [Web](/docs/web/)
+    -   [IDE](/docs/ide/)
+    -   [Zen](/docs/zen/)
+    -   [Share](/docs/share/)
+    -   [GitHub](/docs/github/)
+    -   [GitLab](/docs/gitlab/)
+    
+-   Configure
+    
+    -   [Tools](/docs/tools/)
+    -   [Rules](/docs/rules/)
+    -   [Agents](/docs/agents/)
+    -   [Models](/docs/models/)
+    -   [Themes](/docs/themes/)
+    -   [Keybinds](/docs/keybinds/)
+    -   [Commands](/docs/commands/)
+    -   [Formatters](/docs/formatters/)
+    -   [Permissions](/docs/permissions/)
+    -   [LSP Servers](/docs/lsp/)
+    -   [MCP servers](/docs/mcp-servers/)
+    -   [ACP Support](/docs/acp/)
+    -   [Agent Skills](/docs/skills/)
+    -   [Custom Tools](/docs/custom-tools/)
+    
+-   Develop
+    
+    -   [SDK](/docs/sdk/)
+    -   [Server](/docs/server/)
+    -   [Plugins](/docs/plugins/)
+    -   [Ecosystem](/docs/ecosystem/)
+    
+
+[GitHub](https://github.com/anomalyco/opencode)[Discord](https://opencode.ai/discord)
+
+Select theme DarkLightAuto   Select language EnglishالعربيةBosanskiDanskDeutschEspañolFrançaisItaliano日本語한국어Norsk BokmålPolskiPortuguês (Brasil)РусскийไทยTürkçe简体中文繁體中文
+
+On this page
+
+-   [Overview](#_top)
+    -   [Usage](#usage)
+    -   [Authentication](#authentication)
+    -   [How it works](#how-it-works)
+-   [Spec](#spec)
+-   [APIs](#apis)
+    -   [Global](#global)
+    -   [Project](#project)
+    -   [Path & VCS](#path--vcs)
+    -   [Instance](#instance)
+    -   [Config](#config)
+    -   [Provider](#provider)
+    -   [Sessions](#sessions)
+    -   [Messages](#messages)
+    -   [Commands](#commands)
+    -   [Files](#files)
+    -   [Tools (Experimental)](#tools-experimental)
+    -   [LSP, Formatters & MCP](#lsp-formatters--mcp)
+    -   [Agents](#agents)
+    -   [Logging](#logging)
+    -   [TUI](#tui)
+    -   [Auth](#auth)
+    -   [Events](#events)
+    -   [Docs](#docs)
+
+## On this page
+
+-   [Overview](#_top)
+    -   [Usage](#usage)
+    -   [Authentication](#authentication)
+    -   [How it works](#how-it-works)
+-   [Spec](#spec)
+-   [APIs](#apis)
+    -   [Global](#global)
+    -   [Project](#project)
+    -   [Path & VCS](#path--vcs)
+    -   [Instance](#instance)
+    -   [Config](#config)
+    -   [Provider](#provider)
+    -   [Sessions](#sessions)
+    -   [Messages](#messages)
+    -   [Commands](#commands)
+    -   [Files](#files)
+    -   [Tools (Experimental)](#tools-experimental)
+    -   [LSP, Formatters & MCP](#lsp-formatters--mcp)
+    -   [Agents](#agents)
+    -   [Logging](#logging)
+    -   [TUI](#tui)
+    -   [Auth](#auth)
+    -   [Events](#events)
+    -   [Docs](#docs)
+
+# Server
+
+Interact with opencode server over HTTP.
+
+The `opencode serve` command runs a headless HTTP server that exposes an OpenAPI endpoint that an opencode client can use.
+
+---
+
+### [Usage](#usage)
+
+Terminal window
+
+```
+opencode serve [--port <number>] [--hostname <string>] [--cors <origin>]
+```
+
+#### [Options](#options)
+
+Flag
+
+Description
+
+Default
+
+`--port`
+
+Port to listen on
+
+`4096`
+
+`--hostname`
+
+Hostname to listen on
+
+`127.0.0.1`
+
+`--mdns`
+
+Enable mDNS discovery
+
+`false`
+
+`--mdns-domain`
+
+Custom domain name for mDNS service
+
+`opencode.local`
+
+`--cors`
+
+Additional browser origins to allow
+
+`[]`
+
+`--cors` can be passed multiple times:
+
+Terminal window
+
+```
+opencode serve --cors http://localhost:5173 --cors https://app.example.com
+```
+
+---
+
+### [Authentication](#authentication)
+
+Set `OPENCODE_SERVER_PASSWORD` to protect the server with HTTP basic auth. The username defaults to `opencode`, or set `OPENCODE_SERVER_USERNAME` to override it. This applies to both `opencode serve` and `opencode web`.
+
+Terminal window
+
+```
+OPENCODE_SERVER_PASSWORD=your-password opencode serve
+```
+
+---
+
+### [How it works](#how-it-works)
+
+When you run `opencode` it starts a TUI and a server. Where the TUI is the client that talks to the server. The server exposes an OpenAPI 3.1 spec endpoint. This endpoint is also used to generate an [SDK](/docs/sdk).
+
+Tip
+
+Use the opencode server to interact with opencode programmatically.
+
+This architecture lets opencode support multiple clients and allows you to interact with opencode programmatically.
+
+You can run `opencode serve` to start a standalone server. If you have the opencode TUI running, `opencode serve` will start a new server.
+
+---
+
+#### [Connect to an existing server](#connect-to-an-existing-server)
+
+When you start the TUI it randomly assigns a port and hostname. You can instead pass in the `--hostname` and `--port` [flags](/docs/cli). Then use this to connect to its server.
+
+The [`/tui`](#tui) endpoint can be used to drive the TUI through the server. For example, you can prefill or run a prompt. This setup is used by the OpenCode [IDE](/docs/ide) plugins.
+
+---
+
+## [Spec](#spec)
+
+The server publishes an OpenAPI 3.1 spec that can be viewed at:
+
+```
+http://<hostname>:<port>/doc
+```
+
+For example, `http://localhost:4096/doc`. Use the spec to generate clients or inspect request and response types. Or view it in a Swagger explorer.
+
+---
+
+## [APIs](#apis)
+
+The opencode server exposes the following APIs.
+
+---
+
+### [Global](#global)
+
+Method
+
+Path
+
+Description
+
+Response
+
+`GET`
+
+`/global/health`
+
+Get server health and version
+
+`{ healthy: true, version: string }`
+
+`GET`
+
+`/global/event`
+
+Get global events (SSE stream)
+
+Event stream
+
+---
+
+### [Project](#project)
+
+Method
+
+Path
+
+Description
+
+Response
+
+`GET`
+
+`/project`
+
+List all projects
+
+[`Project[]`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+`GET`
+
+`/project/current`
+
+Get the current project
+
+[`Project`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+---
+
+### [Path & VCS](#path--vcs)
+
+Method
+
+Path
+
+Description
+
+Response
+
+`GET`
+
+`/path`
+
+Get the current path
+
+[`Path`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+`GET`
+
+`/vcs`
+
+Get VCS info for the current project
+
+[`VcsInfo`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+---
+
+### [Instance](#instance)
+
+Method
+
+Path
+
+Description
+
+Response
+
+`POST`
+
+`/instance/dispose`
+
+Dispose the current instance
+
+`boolean`
+
+---
+
+### [Config](#config)
+
+Method
+
+Path
+
+Description
+
+Response
+
+`GET`
+
+`/config`
+
+Get config info
+
+[`Config`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+`PATCH`
+
+`/config`
+
+Update config
+
+[`Config`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+`GET`
+
+`/config/providers`
+
+List providers and default models
+
+`{ providers:` [Provider\[\]](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)`, default: { [key: string]: string } }`
+
+---
+
+### [Provider](#provider)
+
+Method
+
+Path
+
+Description
+
+Response
+
+`GET`
+
+`/provider`
+
+List all providers
+
+`{ all:` [Provider\[\]](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)`, default: {...}, connected: string[] }`
+
+`GET`
+
+`/provider/auth`
+
+Get provider authentication methods
+
+`{ [providerID: string]:` [ProviderAuthMethod\[\]](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts) `}`
+
+`POST`
+
+`/provider/{id}/oauth/authorize`
+
+Authorize a provider using OAuth
+
+[`ProviderAuthAuthorization`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+`POST`
+
+`/provider/{id}/oauth/callback`
+
+Handle OAuth callback for a provider
+
+`boolean`
+
+---
+
+### [Sessions](#sessions)
+
+Method
+
+Path
+
+Description
+
+Notes
+
+`GET`
+
+`/session`
+
+List all sessions
+
+Returns [`Session[]`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+`POST`
+
+`/session`
+
+Create a new session
+
+body: `{ parentID?, title? }`, returns [`Session`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+`GET`
+
+`/session/status`
+
+Get session status for all sessions
+
+Returns `{ [sessionID: string]:` [SessionStatus](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts) `}`
+
+`GET`
+
+`/session/:id`
+
+Get session details
+
+Returns [`Session`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+`DELETE`
+
+`/session/:id`
+
+Delete a session and all its data
+
+Returns `boolean`
+
+`PATCH`
+
+`/session/:id`
+
+Update session properties
+
+body: `{ title? }`, returns [`Session`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+`GET`
+
+`/session/:id/children`
+
+Get a session’s child sessions
+
+Returns [`Session[]`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+`GET`
+
+`/session/:id/todo`
+
+Get the todo list for a session
+
+Returns [`Todo[]`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+`POST`
+
+`/session/:id/init`
+
+Analyze app and create `AGENTS.md`
+
+body: `{ messageID, providerID, modelID }`, returns `boolean`
+
+`POST`
+
+`/session/:id/fork`
+
+Fork an existing session at a message
+
+body: `{ messageID? }`, returns [`Session`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+`POST`
+
+`/session/:id/abort`
+
+Abort a running session
+
+Returns `boolean`
+
+`POST`
+
+`/session/:id/share`
+
+Share a session
+
+Returns [`Session`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+`DELETE`
+
+`/session/:id/share`
+
+Unshare a session
+
+Returns [`Session`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/j
+... (truncated from 17132 chars)
+
+[TOOL: webfetch] (completed)
+Input: {
+  "url": "https://opencode.ai/docs/sdk/",
+  "format": "markdown"
+}
+Output: SDK | OpenCode     [Skip to content](#_top)
+
+  [![](/docs/_astro/logo-dark.DOStV66V.svg) ![](/docs/_astro/logo-light.B0yzR0O5.svg) OpenCode](/docs/)
+
+[app.header.home](/)[app.header.docs](/docs/)
+
+[](https://github.com/anomalyco/opencode)[](https://opencode.ai/discord)
+
+Search CtrlK
+
+Cancel
+
+-   [Intro](/docs/)
+-   [Config](/docs/config/)
+-   [Providers](/docs/providers/)
+-   [Network](/docs/network/)
+-   [Enterprise](/docs/enterprise/)
+-   [Troubleshooting](/docs/troubleshooting/)
+-   [Windows](/docs/windows-wsl)
+-   Usage
+    
+    -   [TUI](/docs/tui/)
+    -   [CLI](/docs/cli/)
+    -   [Web](/docs/web/)
+    -   [IDE](/docs/ide/)
+    -   [Zen](/docs/zen/)
+    -   [Share](/docs/share/)
+    -   [GitHub](/docs/github/)
+    -   [GitLab](/docs/gitlab/)
+    
+-   Configure
+    
+    -   [Tools](/docs/tools/)
+    -   [Rules](/docs/rules/)
+    -   [Agents](/docs/agents/)
+    -   [Models](/docs/models/)
+    -   [Themes](/docs/themes/)
+    -   [Keybinds](/docs/keybinds/)
+    -   [Commands](/docs/commands/)
+    -   [Formatters](/docs/formatters/)
+    -   [Permissions](/docs/permissions/)
+    -   [LSP Servers](/docs/lsp/)
+    -   [MCP servers](/docs/mcp-servers/)
+    -   [ACP Support](/docs/acp/)
+    -   [Agent Skills](/docs/skills/)
+    -   [Custom Tools](/docs/custom-tools/)
+    
+-   Develop
+    
+    -   [SDK](/docs/sdk/)
+    -   [Server](/docs/server/)
+    -   [Plugins](/docs/plugins/)
+    -   [Ecosystem](/docs/ecosystem/)
+    
+
+[GitHub](https://github.com/anomalyco/opencode)[Discord](https://opencode.ai/discord)
+
+Select theme DarkLightAuto   Select language EnglishالعربيةBosanskiDanskDeutschEspañolFrançaisItaliano日本語한국어Norsk BokmålPolskiPortuguês (Brasil)РусскийไทยTürkçe简体中文繁體中文
+
+On this page
+
+-   [Overview](#_top)
+-   [Install](#install)
+-   [Create client](#create-client)
+-   [Config](#config)
+-   [Client only](#client-only)
+-   [Types](#types)
+-   [Errors](#errors)
+-   [Structured Output](#structured-output)
+    -   [Basic Usage](#basic-usage)
+    -   [Output Format Types](#output-format-types)
+    -   [JSON Schema Format](#json-schema-format)
+    -   [Error Handling](#error-handling)
+    -   [Best Practices](#best-practices)
+-   [APIs](#apis)
+    -   [Global](#global)
+    -   [App](#app)
+    -   [Project](#project)
+    -   [Path](#path)
+    -   [Config](#config-1)
+    -   [Sessions](#sessions)
+    -   [Files](#files)
+    -   [TUI](#tui)
+    -   [Auth](#auth)
+    -   [Events](#events)
+
+## On this page
+
+-   [Overview](#_top)
+-   [Install](#install)
+-   [Create client](#create-client)
+-   [Config](#config)
+-   [Client only](#client-only)
+-   [Types](#types)
+-   [Errors](#errors)
+-   [Structured Output](#structured-output)
+    -   [Basic Usage](#basic-usage)
+    -   [Output Format Types](#output-format-types)
+    -   [JSON Schema Format](#json-schema-format)
+    -   [Error Handling](#error-handling)
+    -   [Best Practices](#best-practices)
+-   [APIs](#apis)
+    -   [Global](#global)
+    -   [App](#app)
+    -   [Project](#project)
+    -   [Path](#path)
+    -   [Config](#config-1)
+    -   [Sessions](#sessions)
+    -   [Files](#files)
+    -   [TUI](#tui)
+    -   [Auth](#auth)
+    -   [Events](#events)
+
+# SDK
+
+Type-safe JS client for opencode server.
+
+The opencode JS/TS SDK provides a type-safe client for interacting with the server. Use it to build integrations and control opencode programmatically.
+
+[Learn more](/docs/server) about how the server works. For examples, check out the [projects](/docs/ecosystem#projects) built by the community.
+
+---
+
+## [Install](#install)
+
+Install the SDK from npm:
+
+Terminal window
+
+```
+npm install @opencode-ai/sdk
+```
+
+---
+
+## [Create client](#create-client)
+
+Create an instance of opencode:
+
+```
+import { createOpencode } from "@opencode-ai/sdk"
+const { client } = await createOpencode()
+```
+
+This starts both a server and a client
+
+#### [Options](#options)
+
+Option
+
+Type
+
+Description
+
+Default
+
+`hostname`
+
+`string`
+
+Server hostname
+
+`127.0.0.1`
+
+`port`
+
+`number`
+
+Server port
+
+`4096`
+
+`signal`
+
+`AbortSignal`
+
+Abort signal for cancellation
+
+`undefined`
+
+`timeout`
+
+`number`
+
+Timeout in ms for server start
+
+`5000`
+
+`config`
+
+`Config`
+
+Configuration object
+
+`{}`
+
+---
+
+## [Config](#config)
+
+You can pass a configuration object to customize behavior. The instance still picks up your `opencode.json`, but you can override or add configuration inline:
+
+```
+import { createOpencode } from "@opencode-ai/sdk"
+const opencode = await createOpencode({  hostname: "127.0.0.1",  port: 4096,  config: {    model: "anthropic/claude-3-5-sonnet-20241022",  },})
+console.log(`Server running at ${opencode.server.url}`)
+opencode.server.close()
+```
+
+## [Client only](#client-only)
+
+If you already have a running instance of opencode, you can create a client instance to connect to it:
+
+```
+import { createOpencodeClient } from "@opencode-ai/sdk"
+const client = createOpencodeClient({  baseUrl: "http://localhost:4096",})
+```
+
+#### [Options](#options-1)
+
+Option
+
+Type
+
+Description
+
+Default
+
+`baseUrl`
+
+`string`
+
+URL of the server
+
+`http://localhost:4096`
+
+`fetch`
+
+`function`
+
+Custom fetch implementation
+
+`globalThis.fetch`
+
+`parseAs`
+
+`string`
+
+Response parsing method
+
+`auto`
+
+`responseStyle`
+
+`string`
+
+Return style: `data` or `fields`
+
+`fields`
+
+`throwOnError`
+
+`boolean`
+
+Throw errors instead of return
+
+`false`
+
+---
+
+## [Types](#types)
+
+The SDK includes TypeScript definitions for all API types. Import them directly:
+
+```
+import type { Session, Message, Part } from "@opencode-ai/sdk"
+```
+
+All types are generated from the server’s OpenAPI specification and available in the [types file](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts).
+
+---
+
+## [Errors](#errors)
+
+The SDK can throw errors that you can catch and handle:
+
+```
+try {  await client.session.get({ path: { id: "invalid-id" } })} catch (error) {  console.error("Failed to get session:", (error as Error).message)}
+```
+
+---
+
+## [Structured Output](#structured-output)
+
+You can request structured JSON output from the model by specifying an `format` with a JSON schema. The model will use a `StructuredOutput` tool to return validated JSON matching your schema.
+
+### [Basic Usage](#basic-usage)
+
+```
+const result = await client.session.prompt({  path: { id: sessionId },  body: {    parts: [{ type: "text", text: "Research Anthropic and provide company info" }],    format: {      type: "json_schema",      schema: {        type: "object",        properties: {          company: { type: "string", description: "Company name" },          founded: { type: "number", description: "Year founded" },          products: {            type: "array",            items: { type: "string" },            description: "Main products",          },        },        required: ["company", "founded"],      },    },  },})
+// Access the structured outputconsole.log(result.data.info.structured_output)// { company: "Anthropic", founded: 2021, products: ["Claude", "Claude API"] }
+```
+
+### [Output Format Types](#output-format-types)
+
+Type
+
+Description
+
+`text`
+
+Default. Standard text response (no structured output)
+
+`json_schema`
+
+Returns validated JSON matching the provided schema
+
+### [JSON Schema Format](#json-schema-format)
+
+When using `type: 'json_schema'`, provide:
+
+Field
+
+Type
+
+Description
+
+`type`
+
+`'json_schema'`
+
+Required. Specifies JSON schema mode
+
+`schema`
+
+`object`
+
+Required. JSON Schema object defining the output structure
+
+`retryCount`
+
+`number`
+
+Optional. Number of validation retries (default: 2)
+
+### [Error Handling](#error-handling)
+
+If the model fails to produce valid structured output after all retries, the response will include a `StructuredOutputError`:
+
+```
+if (result.data.info.error?.name === "StructuredOutputError") {  console.error("Failed to produce structured output:", result.data.info.error.message)  console.error("Attempts:", result.data.info.error.retries)}
+```
+
+### [Best Practices](#best-practices)
+
+1.  **Provide clear descriptions** in your schema properties to help the model understand what data to extract
+2.  **Use `required`** to specify which fields must be present
+3.  **Keep schemas focused** - complex nested schemas may be harder for the model to fill correctly
+4.  **Set appropriate `retryCount`** - increase for complex schemas, decrease for simple ones
+
+---
+
+## [APIs](#apis)
+
+The SDK exposes all server APIs through a type-safe client.
+
+---
+
+### [Global](#global)
+
+Method
+
+Description
+
+Response
+
+`global.health()`
+
+Check server health and version
+
+`{ healthy: true, version: string }`
+
+---
+
+#### [Examples](#examples)
+
+```
+const health = await client.global.health()console.log(health.data.version)
+```
+
+---
+
+### [App](#app)
+
+Method
+
+Description
+
+Response
+
+`app.log()`
+
+Write a log entry
+
+`boolean`
+
+`app.agents()`
+
+List all available agents
+
+[`Agent[]`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+---
+
+#### [Examples](#examples-1)
+
+```
+// Write a log entryawait client.app.log({  body: {    service: "my-app",    level: "info",    message: "Operation completed",  },})
+// List available agentsconst agents = await client.app.agents()
+```
+
+---
+
+### [Project](#project)
+
+Method
+
+Description
+
+Response
+
+`project.list()`
+
+List all projects
+
+[`Project[]`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+`project.current()`
+
+Get current project
+
+[`Project`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+---
+
+#### [Examples](#examples-2)
+
+```
+// List all projectsconst projects = await client.project.list()
+// Get current projectconst currentProject = await client.project.current()
+```
+
+---
+
+### [Path](#path)
+
+Method
+
+Description
+
+Response
+
+`path.get()`
+
+Get current path
+
+[`Path`](https://github.com/anomalyco/opencode/blob/dev/packages/sdk/js/src/gen/types.gen.ts)
+
+---
+
+#### [Examples](#examples-3)
+
+```
+// Get current path informationconst pathInfo = await client.path.get()
+```
+
+---
+
+### [Config](#config-1)
+
+Method
+
+Description
+
+Response
+
+`config.get()`
+... (truncated from 17475 chars)
+
+--- step-finish (cost: 0.08516875, tokens: {"total":45349,"input":3,"output":227,"reasoning":0,"cache":{"read":35220,"write":9899}}) ---
+
+----------------------------------------
+
+## ASSISTANT [plan] — 2026-02-21 20:15:31
+
+--- step-start ---
+
+Now I have a thorough understanding of the entire picture. Let me distill the raw fetches and give you a clear analysis.
+
+[TOOL: distill] (completed)
+Input: {
+  "targets": [
+    {
+      "id": "1",
+      "distillation": "cloud-code src/index.ts: Cloudflare Worker entry point. Exports AgentContainer from container.ts. Implements Basic Auth via SERVER_USERNAME/SERVER_PASSWORD env vars. All requests pass through verifyBasicAuth() then forwardRequestToContainer(). Simple proxy pattern."
+    },
+    {
+      "id": "2",
+      "distillation": "cloud-code src/sse.ts: SSE stream parser. processSSEStream(reader, onEvent) reads Uint8Array chunks, splits on newlines, parses 'data: {json}' lines into SSEEvent objects with payload.type field. Used by container.ts to monitor OpenCode events."
+    },
+    {
+      "id": "3",
+      "distillation": "cloud-code src/container.ts: Uses @cloudflare/containers Container class. AgentContainer extends Container with sleepAfter=10m, defaultPort=2633. Passes all env vars as container envVars. watchContainer() connects to http://container/global/event SSE stream, renews activity timeout on 'session.updated' events (keeps container alive while user is active). forwardRequestToContainer() uses singleton Durable Object pattern (idFromName) with wnam region hint to proxy requests into the container."
+    },
+    {
+      "id": "4",
+      "distillation": "Dockerfile: Based on nikolaik/python-nodejs:python3.12-nodejs22-bookworm. Installs tigrisfs (S3/R2 FUSE mount), cloudflared, and opencode CLI. Entrypoint: mounts S3 bucket via tigrisfs to /root/s3, creates workspace dir, copies default opencode config if not exists, runs 'opencode web --port 2633 --hostname 0.0.0.0'. Workspace is at /root/s3/workspace/project. XDG dirs point to /root/s3/.opencode/ for persistent config/data/state."
+    },
+    {
+      "id": "6",
+      "distillation": "wrangler.jsonc: CF Workers config. Container spec: 1 vCPU, 4GB RAM, 8GB disk, max 1 instance, wnam region. Uses Durable Object binding for AgentContainer with SQLite migration."
+    },
+    {
+      "id": "10",
+      "distillation": "OpenCode intro/docs page. Install via curl, npm, brew, etc. Key commands: opencode (TUI), opencode web (browser UI), opencode serve (headless server). Config via opencode.json. Features: /init creates AGENTS.md, /undo /redo, /share, Tab for plan/build mode toggle."
+    },
+    {
+      "id": "12",
+      "distillation": "OpenCode Web docs: 'opencode web' starts local HTTP server serving built-in browser UI + API. Config flags: --port (random default), --hostname (127.0.0.1 default, use 0.0.0.0 for network), --mdns for discovery, --cors for additional origins, OPENCODE_SERVER_PASSWORD/USERNAME for Basic Auth. 'opencode attach <url>' connects TUI to running web server. Config also via opencode.json: { server: { port, hostname, mdns, cors } }."
+    },
+    {
+      "id": "13",
+      "distillation": "OpenCode Server API (full reference): 'opencode serve' runs headless HTTP server with OpenAPI 3.1 spec at /doc. Architecture: TUI is a client that talks to the server; multiple clients supported. Key APIs:\n- GET /global/health, /global/event (SSE)\n- GET /project, /project/current\n- GET/PATCH /config, GET /config/providers\n- GET /provider, POST /provider/{id}/oauth/*\n- CRUD /session, POST /session/:id/message (sync prompt), POST /session/:id/prompt_async (async), POST /session/:id/command, /session/:id/shell, /session/:id/abort, /session/:id/share, /session/:id/fork, /session/:id/revert, /session/:id/diff, /session/:id/todo, /session/:id/permissions/:id\n- GET /command (list slash commands)\n- GET /find?pattern=, /find/file?query=, /find/symbol?query=, /file?path=, /file/content?path=, /file/status\n- GET /experimental/tool/ids, /experimental/tool?provider=&model=\n- GET /lsp, /formatter, /mcp; POST /mcp (add dynamically)\n- GET /agent\n- POST /tui/* (append-prompt, submit-prompt, execute-command, show-toast, control)\n- PUT /auth/:id\n- GET /event (SSE stream: server.connected then bus events)\nAuth: OPENCODE_SERVER_PASSWORD + OPENCODE_SERVER_USERNAME for HTTP Basic Auth."
+    },
+    {
+      "id": "14",
+      "distillation": "OpenCode JS SDK (@opencode-ai/sdk): Type-safe client for the server API. createOpencode() starts server+client. createOpencodeClient({ baseUrl }) connects to existing server. Key APIs: client.global.health(), client.session.{list,get,create,delete,prompt,command,shell,abort,share,messages,revert}, client.event.subscribe() for SSE, client.file.{read,status}, client.find.{text,files,symbols}, client.config.{get,providers}, client.tui.{appendPrompt,submitPrompt,executeCommand,showToast}, client.auth.set(). Supports structured output via format: { type: 'json_schema', schema: {...} } in prompt body. All types generated from OpenAPI spec."
+    }
+  ]
+}
+Output: Context pruning complete. Pruned 9 tool outputs.
+
+Semantically pruned (9):
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://opencode.ai/docs
+→ webfetch: https://opencode.ai/docs/web/
+→ webfetch: https://opencode.ai/docs/server/
+→ webfetch: https://opencode.ai/docs/sdk/
+
+--- step-finish (cost: 0.1497915, tokens: {"total":60884,"input":1,"output":1417,"reasoning":0,"cache":{"read":44748,"write":14718}}) ---
+
+----------------------------------------
+
+## USER [plan] (claude-opus-4-6) — 2026-02-21 20:16:08
+
+▣ DCP | ~26.4K tokens saved total
+
+▣ Pruning (~19.8K tokens, distilled 1.1K tokens)
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://raw.githubusercontent.com/miantiao-me/cloud-code/...
+→ webfetch: https://opencode.ai/docs
+→ webfetch: https://opencode.ai/docs/web/
+→ webfetch: https://opencode.ai/docs/server/
+→ webfetch: https://opencode.ai/docs/sdk/
+
+----------------------------------------
+
+## ASSISTANT [plan] — 2026-02-21 20:16:09
+
+--- step-start ---
+
+
+
+Here's my thorough analysis of the `cloud-code` repository and what's relevant to your goal:
+
+## What cloud-code Actually Is
+
+It's a **Cloudflare Workers + Containers** deployment that:
+
+1. **Spins up a Docker container** running `opencode web --port 2633 --hostname 0.0.0.0`
+2. **Proxies all HTTP requests** from a CF Worker into that container (Basic Auth protected)
+3. **Keeps the container alive** via SSE heartbeat monitoring (sleeps after 10min of inactivity)
+4. **Persists workspace** to S3/R2 via FUSE mount (tigrisfs)
+
+## Architecture Breakdown
+
+```
+Browser → CF Worker (Basic Auth) → Durable Object → Container (Docker)
+                                                      └─ opencode web :2633
+                                                      └─ tigrisfs → R2 (persistence)
+```
+
+## What's Actually Useful vs. Redundant
+
+| Component | What it does | Useful to you? |
+|-----------|-------------|----------------|
+| `src/index.ts` | Basic Auth proxy | **No** — trivial, any reverse proxy does this |
+| `src/sse.ts` | SSE parser for keep-alive | **No** — only needed for CF container sleep management |
+| `src/container.ts` | CF Durable Object + Container orchestration | **No** — CF-specific infra |
+| `wrangler.jsonc` | CF Workers config | **No** — CF-specific |
+| `Dockerfile` | Installs opencode + tigrisfs + cloudflared | **Maybe partially** — shows how to run `opencode web` headless |
+| `config/opencode/` | OpenCode config with `permission: allow` | **Trivial** — just a JSON file |
+
+## The Real Discovery: OpenCode Already Has Everything You Need
+
+The cloud-code repo is essentially a thin CF deployment wrapper. The **actual value** is in OpenCode itself, which natively provides:
+
+### `opencode web` (built-in browser UI)
+- Starts an HTTP server with a **built-in web frontend** + full API
+- `--hostname 0.0.0.0` exposes it on the network
+- `--port <N>` to pick a port
+- `--cors <origin>` to allow cross-origin access from your own frontend
+- Supports Basic Auth via `OPENCODE_SERVER_PASSWORD` / `OPENCODE_SERVER_USERNAME` env vars
+
+### `opencode serve` (headless API only)
+- Same HTTP API, no built-in UI — ideal if you want to build your **own** frontend
+- Full OpenAPI 3.1 spec at `/doc`
+- SSE event stream at `/event` for real-time updates
+
+### `@opencode-ai/sdk` (JS client)
+- Type-safe client library generated from the OpenAPI spec
+- `createOpencodeClient({ baseUrl })` to connect to a running server
+- Full CRUD: sessions, messages, prompts, files, config
+- `client.event.subscribe()` for SSE streaming
+
+## My Assessment
+
+**You don't need anything from the cloud-code repo.** It's 100% Cloudflare deployment glue. The only mildly useful thing is the Dockerfile as a reference for how to set up `opencode web` in a container, but even that is straightforward.
+
+**What you actually want is one of:**
+
+1. **Use `opencode web` directly** — run it on your server, point your browser at it. Built-in UI works out of the box. Add `--cors` if your frontend is on a different origin.
+
+2. **Use `opencode serve` + build a custom frontend** — headless API mode, you build the UI, talk to it via the REST API + SSE events. Use `@opencode-ai/sdk` for type-safe access.
+
+3. **Use `opencode web` + augment with custom frontend** — the web mode serves both the UI and the API, so you could have your own frontend talk to the same API endpoints alongside the built-in UI.
+
+---
+
+Do you want me to dig deeper into any of these approaches? Specifically:
+- Should I pull the full OpenAPI spec from a running OpenCode instance to map out the exact API surface?
+- Are you looking to embed/iframe the built-in web UI, or build a completely custom frontend?
+- Is the OpenCode instance meant to run locally, on a remote server, or in a container?
+
+--- step-finish (cost: 0.07995625, tokens: {"total":42037,"input":3,"output":1053,"reasoning":0,"cache":{"read":35220,"write":5761}}) ---
+
+----------------------------------------
+
+## USER [plan] (claude-opus-4-6) — 2026-02-21 20:47:53
+
+quick question in between, can i stream ui from playwright into another browser ui? so it looks the same?
+
+----------------------------------------
+
+## ASSISTANT [plan] — 2026-02-21 20:47:53
+
+--- step-start ---
+
+Yes, this is possible but it depends on what you mean by "stream UI."
+
+## Option 1: VNC/noVNC-style (pixel streaming)
+
+Playwright runs a real browser (Chromium). You can run it in **headed mode** inside a container with a virtual display (Xvfb), then use **noVNC** or **VNC** to stream the display to another browser. This is how tools like Browserless, Selenium Grid, and various remote browser services work.
+
+```
+Playwright (headed) → Xvfb → VNC server → noVNC WebSocket → Browser UI
+```
+
+This gives you a live, visual mirror of exactly what Playwright sees. It's pixel-perfect but view-only (unless you wire up input forwarding).
+
+## Option 2: CDP DevTools Protocol (native Chrome streaming)
+
+Playwright connects to Chromium via the Chrome DevTools Protocol (CDP). CDP has a **screencast API** (`Page.startScreencast`) that streams JPEG frames. You could:
+
+1. Expose the CDP WebSocket endpoint
+2. Connect from your frontend and call `Page.startScreencast`
+3. Render the frames in a `<canvas>`
+
+This is lower overhead than VNC but gives you compressed JPEG frames, not a true interactive view.
+
+## Option 3: Playwright's built-in `--ui` / Trace Viewer
+
+Playwright has a built-in trace viewer that can show step-by-step what happened, but it's post-hoc, not live streaming.
+
+## Option 4: Browserless.io approach
+
+Tools like [Browserless](https://github.com/browserless/browserless) wrap Chromium in a container and expose both a CDP API and a live view URL. You embed an iframe or noVNC widget in your UI and see exactly what the automated browser sees.
+
+---
+
+## Practical Answer
+
+The most straightforward approach for "make it look the same in another browser":
+
+- **If you want a live mirror:** Run headed Playwright + Xvfb + noVNC in Docker. Embed the noVNC client (it's just a JS library) in your web UI via an iframe or component. Several Docker images exist for this already (e.g., `browserless/chrome`, `seleniarm/standalone-chromium` with VNC).
+
+- **If you want programmatic frame access:** Use CDP `Page.startScreencast` — you get a stream of screenshots you can render however you want.
+
+- **If you want full interactive remote control** (not just viewing): noVNC with input forwarding, or something like [neko](https://github.com/m1k1o/neko) which is purpose-built for this (browser-in-browser with WebRTC).
+
+What's the use case — do you want to show someone what an automated Playwright session is doing in real-time, or is this more about running a remote browser that a user interacts with through your web UI?
+
+--- step-finish (cost: 0.27964625, tokens: {"total":42728,"input":3,"output":672,"reasoning":0,"cache":{"read":0,"write":42053}}) ---
+
+----------------------------------------
+
+## USER [plan] (claude-opus-4-6) — 2026-02-21 20:49:32
+
+ running a remote browser that a user interacts with through your web UI, where agent and user can both interact on page
+
+----------------------------------------
+
+## ASSISTANT [plan] — 2026-02-21 20:49:32
+
+--- step-start ---
+
+
+
+That's a compelling use case — a **shared collaborative browser** where both the AI agent and the human user can interact with the same page simultaneously. This is essentially the "Google Docs for browsing" model.
+
+## The Best Fit: Neko
+
+[neko](https://github.com/m1k1o/neko) is purpose-built for exactly this. It's an open-source self-hosted virtual browser that:
+
+- Runs a real browser (Chromium/Firefox) in a Docker container
+- Streams the display to web clients via **WebRTC** (low latency, high quality)
+- Supports **full interactive control** — mouse, keyboard, clipboard
+- Multiple users can connect simultaneously (one has control, others watch, or you can pass control)
+- Has an embeddable client library
+
+```
+┌─────────────────────────────────────────────┐
+│  Your Web UI                                │
+│  ┌───────────────────────────────────────┐  │
+│  │  Neko WebRTC embed (live browser)     │  │
+│  │  ← user clicks/types here             │  │
+│  │  ← agent controls via CDP/Playwright  │  │
+│  └───────────────────────────────────────┘  │
+│  [Chat panel]  [Agent controls]             │
+└─────────────────────────────────────────────┘
+```
+
+## Architecture for Agent + User Co-browsing
+
+```
+User's browser ──WebRTC──→ Neko container (Chromium + Xvfb + PulseAudio)
+                                  ↑
+Agent (Playwright) ──CDP──────────┘  (connects to same Chromium instance)
+```
+
+The key insight: **Playwright can connect to an existing browser** via `chromium.connectOverCDP(endpoint)`. So you:
+
+1. Neko runs headed Chromium in a container
+2. The user sees and interacts with it via WebRTC through your web UI
+3. The agent connects to the **same Chromium instance** via CDP and controls it with Playwright
+4. Both see the same page, both can interact — the user sees the agent's actions in real-time (cursor moving, clicking, typing)
+
+## Alternatives Worth Knowing
+
+| Solution | Protocol | Latency | Interactive | Complexity |
+|----------|----------|---------|-------------|------------|
+| **Neko** | WebRTC | ~50ms | Full (mouse/kb/clipboard) | Medium |
+| **noVNC** | WebSocket | ~100-200ms | Full but clunkier | Low |
+| **Browserless** | CDP + VNC | Mixed | Partial | Low |
+| **CDP screencast** | WebSocket | ~200ms+ | Requires custom input bridge | High |
+
+Neko is the clear winner for your use case because of WebRTC latency and the fact that it's designed for multi-user browser sharing.
+
+## Key Questions
+
+Before turning this into a plan:
+
+1. **Where does this run?** Local Docker, cloud VPS, Cloudflare? This affects the neko deployment approach.
+2. **Agent framework** — is the agent an OpenCode instance using Playwright MCP tools (like you have now), or a custom agent? The Playwright connection method depends on this.
+3. **Concurrency model** — can agent and user act simultaneously, or do they take turns? Simultaneous is possible but needs conflict handling (e.g., agent clicking while user is typing).
+4. **Do you need session recording/replay?** Neko doesn't do this natively, but Playwright traces or screen recording could be added.
+
+Want me to research the neko API and embeddable client in more detail, or investigate how to connect Playwright to a neko-managed Chromium instance specifically?
+
+--- step-finish (cost: 0.05008875, tokens: {"total":43651,"input":3,"output":897,"reasoning":0,"cache":{"read":41660,"write":1091}}) ---
+
+----------------------------------------

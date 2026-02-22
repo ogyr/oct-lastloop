@@ -1,0 +1,23 @@
+Extraction workspace: batch-2026-02-22
+Output directory: /Users/clemensgruenberger/WebPro/etron/pos_dev/.opencode/lastloop/auto/batch-2026-02-22/2026-02-21_sunmi-thermal-printer-debug-print_0720d93b
+
+Run these extraction roles IN PARALLEL (they are independent):
+
+1. /role world-effect-classifier
+   Read convo.txt and:
+   - Write goals.md — characterize what the user and agent were trying to achieve, how goals evolved, final state.
+   - Extract all observable effects into feedbacks/ and triedbutfailed/.
+   - Move user-aborted/redirected approaches to ideas/ (NOT triedbutfailed/).
+   - Review for reusable workflow patterns → scaffold under agents/ if found.
+
+2. /role feedback-loop-extractor
+   Read convo.txt and extract novel tool uses into feedbacks/tools.md.
+
+3. /role factoid-extractor
+   Read convo.txt and extract non-common-knowledge factoids into factoids/systems/ and factoids/world/.
+
+THEN after all three complete, run:
+
+4. /role extraction-verifier
+   Audit all produced files. Think → Verify against convo.txt → Fix.
+   Write verification-report.md.

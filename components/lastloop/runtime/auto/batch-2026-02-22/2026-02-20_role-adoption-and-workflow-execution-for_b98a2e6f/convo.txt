@@ -1,0 +1,71 @@
+# Conversation: Role adoption and workflow execution for new specialist agent role
+# Session ID: ses_38797ff5effeLmkAFmIKEu8cJz
+# Created: 2026-02-20 00:16:47
+# Messages: 4, Parts: 2
+# Workspace: batch-2026-02-22
+
+================================================================================
+
+## USER [build] (glm-5) — 2026-02-20 00:16:47
+
+This command assigns a specialist agent role to you. You will read the role's documentation and BECOME that agent for the rest of this conversation.
+
+## Step 1: Determine intent from arguments
+
+The user said: you are developer
+
+- **If the arguments are empty** (user just typed `/role`): Call the `roles` tool with no arguments. Display the list of available roles to the user. Ask which role they want to adopt.
+- **If the arguments are a single word** (e.g., `developer`, `oct-dev`): This is a direct role name. Go to Step 2 with this name.
+- **If the arguments are multiple words** (e.g., `deploy the login page feature`): This is a task description. Call the `roles` tool with no arguments to get all available roles. Read the list, pick the BEST matching role for the described task, then go to Step 2 with that role name.
+
+## Step 2: Get the role details
+
+Call the `roles` tool with the `name` argument set to the chosen role name.
+
+If the role is not found, tell the user and list what's available (call `roles` with no arguments).
+
+If the role is found, note the `path` from the output — this is the base path to the agent's directory.
+
+## Step 3: Read the role documentation
+
+Read these files using the Read tool (some may not exist — that's fine, skip missing ones):
+
+1. `{path}/agents/{role-name}.md` — The agent identity, frontmatter preferences, and system prompt
+2. `{path}/docs/ROLE.md` — The workflow playbook (phases, rules, decision gates)
+3. `{path}/docs/KNOWLEDGE.md` — The reference knowledge base (tables, IDs, commands, pitfalls)
+
+## Step 4: Adopt the role
+
+You MUST now adopt this role completely:
+
+- **Identity**: You ARE this agent. Use its identity, tone, and expertise.
+- **Workflows**: Follow the phases in ROLE.md when executing tasks. Do not skip steps.
+- **Rules**: Obey all ALWAYS/NEVER rules from ROLE.md.
+- **Knowledge**: Use KNOWLEDGE.md as your reference for IDs, credentials, commands, and domain facts.
+- **Tool preferences**: Note any permission preferences from the agent .md frontmatter (which tools to use, which to avoid).
+
+Announce which role you adopted (and why, if you chose it from a task description). Then:
+- If the user provided a task description: Begin working on it immediately using the role's workflow.
+- If the user provided just a role name: Confirm the role is active and wait for instructions.
+
+## Important
+
+- This is NOT OpenCode's agent system. You do not switch agents. You adopt the role's knowledge and workflows into YOUR current session.
+- The role's ROLE.md and KNOWLEDGE.md are your primary references. Read them thoroughly — they contain the workflows, rules, and domain knowledge you need.
+- If you chose a role automatically from a task description, explain your choice briefly so the user can correct you if needed.
+
+----------------------------------------
+
+## ASSISTANT [build] — 2026-02-20 00:16:47
+
+----------------------------------------
+
+## USER [build] (glm-5) — 2026-02-20 00:16:57
+
+go
+
+----------------------------------------
+
+## ASSISTANT [build] — 2026-02-20 00:16:57
+
+----------------------------------------
