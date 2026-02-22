@@ -3,26 +3,16 @@
  * lastloop/extract.ts — Dump an OpenCode conversation from SQLite and scaffold the extraction directory.
  *
  * Usage:
- *   bun extract.ts --workspace NAME [session_id] [--prompt "..."] [--create]
- *   bun extract.ts --workspace NAME --list [N]
+ *   lastloop --list                           List last 20 sessions (current project)
+ *   lastloop --list_all                       List last 20 sessions (all projects)
+ *   lastloop --list_workspaces                List existing workspaces
+ *   lastloop --list --limit 5                 List last 5 sessions
+ *   lastloop -w NAME --create                 Create workspace + extract latest session
+ *   lastloop -w NAME 3                        Extract session #3 (from --list output) into workspace
+ *   lastloop -w NAME ses_xxxxx                Extract specific session into workspace
+ *   lastloop                                  Show help
  *
- * Workspace is REQUIRED. It organizes extractions under auto/<workspace>/.
- *   --create   Create the workspace if it doesn't exist
- *   --list N   List recent sessions (default 10)
- *
- * If session_id is omitted, uses the most recent session for the current project.
- * If --prompt is omitted, a default extraction prompt is used.
- *
- * Output: auto/<workspace>/YYYY-MM-DD_TITLE_HASH/
- *   convo.txt      — full conversation dump (human-readable)
- *   prompt.txt     — the extraction prompt
- *   goals.md       — (populated by world-effect-classifier)
- *   feedbacks/     — (populated by extractor roles)
- *   triedbutfailed/— (populated by extractor roles)
- *   factoids/systems/ — (populated by factoid-extractor)
- *   factoids/world/   — (populated by factoid-extractor)
- *   ideas/         — (populated by extractors)
- *   agents/        — (populated by agent-generator if applicable)
+ * Session selection: use # from --list output, or a session ID (ses_...).
  */
 
 import { Database } from "bun:sqlite";
@@ -35,17 +25,19 @@ const DB_PATH = join(
     process.env.HOME || "~",
     ".local/share/opencode/opencode.db",
 );
-// auto/ lives alongside this script (works both in .oct/lastloop/ and .opencode/lastloop/)
-// LASTLOOP_AUTO_DIR env var allows tests to redirect output to a temp directory
+// auto/ lives alongside this script
+// LASTLOOP_AUTO_DIR env var allows tests to redirect output
 const LASTLOOP_BASE = process.env.LASTLOOP_AUTO_DIR || resolve(import.meta.dir, "auto");
 
 // --- Parse args ---
-let sessionId: string | undefined;
+let sessionArg: string | undefined;
 let promptOverride: string | undefined;
 let workspace: string | undefined;
 let createWorkspace = false;
 let listMode = false;
-let listCount = 10;
+let listAllMode = false;
+let listWorkspacesMode = false;
+let limit = 20;
 
 const args = process.argv.slice(2);
 for (let i = 0; i < args.length; i++) {
@@ -57,38 +49,171 @@ for (let i = 0; i < args.length; i++) {
         promptOverride = args[++i];
     } else if (args[i] === "--list" || args[i] === "-l") {
         listMode = true;
-        if (args[i + 1] && !args[i + 1].startsWith("--")) {
-            listCount = parseInt(args[++i], 10) || 10;
-        }
+    } else if (args[i] === "--list_all") {
+        listAllMode = true;
+    } else if (args[i] === "--list_workspaces") {
+        listWorkspacesMode = true;
+    } else if (args[i] === "--limit" && args[i + 1]) {
+        limit = parseInt(args[++i], 10) || 20;
     } else if (!args[i].startsWith("--") && !args[i].startsWith("-")) {
-        sessionId = args[i];
+        sessionArg = args[i];
     }
 }
 
-// --- Validate workspace ---
-if (!workspace) {
-    console.error(`ERROR: --workspace NAME is required.`);
-    console.error(`\nUsage:`);
-    console.error(`  bun extract.ts --workspace NAME [session_id] [--create]`);
-    console.error(`  bun extract.ts --workspace NAME --list [N]`);
-    console.error(`\nExamples:`);
-    console.error(`  bun extract.ts -w sunmi-debug --create          # Create workspace + extract latest session`);
-    console.error(`  bun extract.ts -w sunmi-debug ses_xxxxx         # Extract specific session into existing workspace`);
-    console.error(`  bun extract.ts -w sunmi-debug --list 5          # List 5 recent sessions`);
+// --- Help ---
+const isListOp = listMode || listAllMode || listWorkspacesMode;
+if (!isListOp && !workspace && !sessionArg) {
+    console.log(`lastloop — Post-conversation knowledge extraction
+
+Usage:
+  lastloop --list [--limit N]              List last N sessions (current project, default 20)
+  lastloop --list_all [--limit N]          List last N sessions (all projects)
+  lastloop --list_workspaces               List existing workspaces with extraction counts
+  lastloop -w NAME --create [session]      Create workspace + extract session (latest if omitted)
+  lastloop -w NAME [session]               Extract into existing workspace
+  lastloop -w NAME --list                  List sessions (with workspace context)
+
+Session can be:
+  #N          Number from --list output (e.g. 3)
+  ses_xxxxx   Session ID
+
+Examples:
+  lastloop --list                          Browse recent sessions
+  lastloop -w sunmi-debug --create 1       Create workspace, extract session #1
+  lastloop -w sunmi-debug 3               Extract session #3 into existing workspace`);
+
     if (existsSync(LASTLOOP_BASE)) {
         const existing = readdirSync(LASTLOOP_BASE).filter(d =>
             statSync(join(LASTLOOP_BASE, d)).isDirectory()
         );
         if (existing.length > 0) {
-            console.error(`\nExisting workspaces:`);
+            console.log(`\nExisting workspaces:`);
             for (const ws of existing) {
                 const count = readdirSync(join(LASTLOOP_BASE, ws)).filter(d =>
                     statSync(join(LASTLOOP_BASE, ws, d)).isDirectory()
                 ).length;
-                console.error(`  ${ws}  (${count} extraction${count !== 1 ? "s" : ""})`);
+                console.log(`  ${ws}  (${count} extraction${count !== 1 ? "s" : ""})`);
             }
         }
     }
+    process.exit(0);
+}
+
+// --- Open DB (needed for list and extraction) ---
+if (!existsSync(DB_PATH)) {
+    console.error(`ERROR: OpenCode DB not found at ${DB_PATH}`);
+    process.exit(1);
+}
+const db = new Database(DB_PATH, { readonly: true });
+
+// --- Helpers ---
+function formatTimestamp(ms: number): string {
+    return new Date(ms).toISOString().replace("T", " ").replace(/\.\d+Z/, "");
+}
+
+function formatDateShort(ms: number): string {
+    return new Date(ms).toISOString().slice(0, 10);
+}
+
+interface SessionListRow {
+    id: string;
+    title: string;
+    time_created: number;
+    msg_count: number;
+    project_dir: string;
+}
+
+function querySessions(allProjects: boolean): SessionListRow[] {
+    const cwd = process.cwd();
+    if (allProjects) {
+        return db
+            .query<SessionListRow, []>(
+                `SELECT s.id, s.title, s.time_created,
+                        (SELECT COUNT(*) FROM message m WHERE m.session_id = s.id) as msg_count,
+                        COALESCE(s.directory, p.worktree, '') as project_dir
+                 FROM session s
+                 LEFT JOIN project p ON s.project_id = p.id
+                 WHERE s.parent_id IS NULL
+                   AND s.time_archived IS NULL
+                 ORDER BY s.time_created DESC`,
+            )
+            .all();
+    } else {
+        return db
+            .query<SessionListRow, [string, string]>(
+                `SELECT s.id, s.title, s.time_created,
+                        (SELECT COUNT(*) FROM message m WHERE m.session_id = s.id) as msg_count,
+                        COALESCE(s.directory, p.worktree, '') as project_dir
+                 FROM session s
+                 LEFT JOIN project p ON s.project_id = p.id
+                 WHERE (s.directory = ? OR s.project_id IN (SELECT id FROM project WHERE worktree LIKE ? || '%'))
+                   AND s.parent_id IS NULL
+                   AND s.time_archived IS NULL
+                 ORDER BY s.time_created DESC`,
+            )
+            .all(cwd, cwd);
+    }
+}
+
+function printSessionList(sessions: SessionListRow[], limited: number, label: string) {
+    const list = sessions.slice(0, limited);
+    console.log(`\n${label} (showing ${list.length} of ${sessions.length}):\n`);
+    console.log(`  ${"#".padStart(3)}  ${"Date".padEnd(12)} ${"Msgs".padStart(4)}  ${"Session ID".padEnd(30)} Title`);
+    console.log(`  ${"─".repeat(3)}  ${"─".repeat(12)} ${"─".repeat(4)}  ${"─".repeat(30)} ${"─".repeat(30)}`);
+    for (let i = 0; i < list.length; i++) {
+        const s = list[i];
+        const num = String(i + 1).padStart(3);
+        const date = formatDateShort(s.time_created).padEnd(12);
+        const msgs = String(s.msg_count).padStart(4);
+        const sid = s.id.padEnd(30);
+        const title = (s.title || "(untitled)").slice(0, 50);
+        console.log(`  ${num}  ${date} ${msgs}  ${sid} ${title}`);
+    }
+    console.log(`\nUse: lastloop -w WORKSPACE_NAME <#> to extract a session`);
+}
+
+// --- List workspaces ---
+if (listWorkspacesMode) {
+    console.log(`\nWorkspaces in ${LASTLOOP_BASE}:\n`);
+    if (existsSync(LASTLOOP_BASE)) {
+        const dirs = readdirSync(LASTLOOP_BASE).filter(d =>
+            statSync(join(LASTLOOP_BASE, d)).isDirectory()
+        );
+        if (dirs.length === 0) {
+            console.log("  (no workspaces)");
+        } else {
+            console.log(`  ${"Workspace".padEnd(30)} ${"Extractions".padStart(11)}  Latest`);
+            console.log(`  ${"─".repeat(30)} ${"─".repeat(11)}  ${"─".repeat(30)}`);
+            for (const ws of dirs) {
+                const subs = readdirSync(join(LASTLOOP_BASE, ws)).filter(d =>
+                    statSync(join(LASTLOOP_BASE, ws, d)).isDirectory()
+                );
+                const latest = subs.sort().reverse()[0] || "(empty)";
+                const latestDate = latest.match(/^\d{4}-\d{2}-\d{2}/)?.[0] || "";
+                const latestTitle = latest.replace(/^\d{4}-\d{2}-\d{2}_/, "").replace(/_[a-f0-9]{8}$/, "").replace(/-/g, " ");
+                console.log(`  ${ws.padEnd(30)} ${String(subs.length).padStart(11)}  ${latestDate} ${latestTitle}`);
+            }
+        }
+    } else {
+        console.log("  (auto/ directory not found)");
+    }
+    db.close();
+    process.exit(0);
+}
+
+// --- List sessions ---
+if (listMode || listAllMode) {
+    const sessions = querySessions(listAllMode);
+    const label = listAllMode ? "All sessions (all projects)" : "Sessions (current project)";
+    printSessionList(sessions, limit, label);
+    db.close();
+    process.exit(0);
+}
+
+// --- Extraction mode: workspace required ---
+if (!workspace) {
+    console.error(`ERROR: --workspace NAME is required for extraction.`);
+    console.error(`Use --list to browse sessions first, then: lastloop -w WORKSPACE_NAME <#>`);
     process.exit(1);
 }
 
@@ -117,49 +242,28 @@ if (!workspaceExists && createWorkspace) {
     console.log(`Created workspace: ${workspace}`);
 }
 
-// --- Open DB ---
-if (!existsSync(DB_PATH)) {
-    console.error(`ERROR: OpenCode DB not found at ${DB_PATH}`);
-    process.exit(1);
-}
+// --- Resolve session from argument ---
+let sessionId: string | undefined;
 
-const db = new Database(DB_PATH, { readonly: true });
-
-// --- List mode ---
-if (listMode) {
-    const cwd = process.cwd();
-    interface ListRow {
-        id: string;
-        title: string;
-        time_created: number;
-        msg_count: number;
+if (sessionArg) {
+    // Check if it's a number (from --list output)
+    const num = parseInt(sessionArg, 10);
+    if (!isNaN(num) && String(num) === sessionArg && num > 0) {
+        // Numbered selection — re-query sessions to find the one at this position
+        const sessions = querySessions(false);
+        if (num > sessions.length) {
+            console.error(`ERROR: Session #${num} not found. Only ${sessions.length} sessions available.`);
+            console.error(`Run: lastloop --list to see available sessions.`);
+            process.exit(1);
+        }
+        sessionId = sessions[num - 1].id;
+        console.log(`Selected session #${num}: ${sessionId} ("${sessions[num - 1].title}")`);
+    } else {
+        // Direct session ID
+        sessionId = sessionArg;
     }
-    const sessions = db
-        .query<ListRow, [string, string]>(
-            `SELECT s.id, s.title, s.time_created,
-                    (SELECT COUNT(*) FROM message m WHERE m.session_id = s.id) as msg_count
-             FROM session s
-             WHERE (s.directory = ? OR s.project_id IN (SELECT id FROM project WHERE worktree LIKE ? || '%'))
-               AND s.parent_id IS NULL
-               AND s.time_archived IS NULL
-             ORDER BY s.time_created DESC`,
-        )
-        .all(cwd, cwd);
-
-    const limited = sessions.slice(0, listCount);
-
-    console.log(`\nWorkspace: ${workspace}${workspaceExists ? "" : " (new)"}`);
-    console.log(`Recent sessions (${limited.length}):\n`);
-    for (const s of limited) {
-        const date = new Date(s.time_created).toISOString().slice(0, 16).replace("T", " ");
-        console.log(`  ${s.id}  ${date}  ${String(s.msg_count).padStart(3)}msgs  ${s.title || "(untitled)"}`);
-    }
-    db.close();
-    process.exit(0);
-}
-
-// --- Resolve session ---
-if (!sessionId) {
+} else {
+    // Auto-select latest session
     const cwd = process.cwd();
 
     let session = db
@@ -194,7 +298,7 @@ if (!sessionId) {
     }
 
     if (!session) {
-        console.error(`ERROR: No sessions found for cwd ${cwd}. Pass session_id explicitly.`);
+        console.error(`ERROR: No sessions found for cwd ${cwd}. Pass session # or ID explicitly.`);
         process.exit(1);
     }
 
@@ -239,7 +343,7 @@ const messages = db
     )
     .all(sessionId);
 
-const parts = db
+const allParts = db
     .query<PartRow, [string]>(
         "SELECT id, message_id, data, time_created FROM part WHERE session_id = ? ORDER BY time_created ASC",
     )
@@ -252,17 +356,13 @@ const childSessions = db
     .all(sessionId);
 
 const partsByMessage = new Map<string, PartRow[]>();
-for (const part of parts) {
+for (const part of allParts) {
     const arr = partsByMessage.get(part.message_id) || [];
     arr.push(part);
     partsByMessage.set(part.message_id, arr);
 }
 
 // --- Build convo.txt ---
-function formatTimestamp(ms: number): string {
-    return new Date(ms).toISOString().replace("T", " ").replace(/\.\d+Z/, "");
-}
-
 function formatPart(partData: Record<string, unknown>): string {
     const type = partData.type as string;
 
@@ -300,7 +400,7 @@ let convoLines: string[] = [];
 convoLines.push(`# Conversation: ${session.title}`);
 convoLines.push(`# Session ID: ${session.id}`);
 convoLines.push(`# Created: ${formatTimestamp(session.time_created)}`);
-convoLines.push(`# Messages: ${messages.length}, Parts: ${parts.length}`);
+convoLines.push(`# Messages: ${messages.length}, Parts: ${allParts.length}`);
 convoLines.push(`# Workspace: ${workspace}`);
 if (childSessions.length > 0) {
     convoLines.push(
@@ -424,6 +524,9 @@ mkdirSync(join(outputDir, "agents"), { recursive: true });
 // --- Write files ---
 writeFileSync(join(outputDir, "convo.txt"), convoText);
 
+// Create empty goals.md placeholder
+writeFileSync(join(outputDir, "goals.md"), `# Conversation Goals\n\n(To be populated by world-effect-classifier)\n`);
+
 const defaultPrompt = `Extraction workspace: ${workspace}
 Output directory: ${outputDir}
 
@@ -453,8 +556,9 @@ writeFileSync(join(outputDir, "prompt.txt"), promptOverride || defaultPrompt);
 // --- Summary ---
 console.log(`\nExtraction scaffolded:`);
 console.log(`  Workspace:   ${workspace}`);
+console.log(`  Session:     ${sessionId} ("${session.title}")`);
 console.log(`  Output:      ${outputDir}/`);
-console.log(`  convo.txt    ${(convoText.length / 1024).toFixed(1)}KB (${messages.length} messages, ${parts.length} parts)`);
+console.log(`  convo.txt    ${(convoText.length / 1024).toFixed(1)}KB (${messages.length} messages, ${allParts.length} parts)`);
 console.log(`  prompt.txt   ${promptOverride ? "(custom)" : "(default)"}`);
 console.log(`\nDirectories created:`);
 console.log(`  goals.md           (populated by world-effect-classifier)`);
